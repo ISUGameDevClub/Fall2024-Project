@@ -4,20 +4,54 @@ using UnityEngine;
 
 public class Currency : MonoBehaviour
 {
-    public int currency = 0;
+    public int playerCurrency = 0;
+    public bool wasSuccessful = false;
 
-    public void AddCurrency(int amount)
+    public bool AddCurrency(int amount)
     {
-        currency += amount;
+        playerCurrency += amount;
+        return wasSuccessful = true;
     }
 
-    public void RemoveCurrency(int amount)
+    public bool RemoveCurrency(int amount)
     {
-        currency -= amount;
+        if (playerCurrency - amount < 0)
+        {
+            return wasSuccessful = false;
+        }
+        else
+        {
+            playerCurrency -= amount;
+            return wasSuccessful = true;
+        }
     }
 
     public int GetCurrency()
     {
-        return currency;
+        return playerCurrency;
+    }
+    public bool SetCurrency(int amount)
+    {
+        if (amount < 0)
+        {
+            return wasSuccessful = false;
+        }
+        else
+        {
+            playerCurrency = amount;
+            return wasSuccessful = true;
+        }
+    }
+
+    public bool CanDeductCurrency(int amount)
+    {
+        if (playerCurrency - amount < 0)
+        {
+           return wasSuccessful = false;
+        }
+        else
+        {
+            return wasSuccessful = true;
+        }
     }
 }
