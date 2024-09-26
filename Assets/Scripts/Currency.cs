@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Currency : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int currency = 0;
+
+    public void AddCurrency(int amount)
     {
-        
+        currency += amount;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveCurrency(int amount)
     {
-        
+        currency -= amount;
+    }
+
+    public int GetCurrency()
+    {
+        return currency;
     }
 }
