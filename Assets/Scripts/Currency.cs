@@ -5,24 +5,24 @@ using UnityEngine;
 public class Currency : MonoBehaviour
 {
     public int playerCurrency = 0;
-    public bool wasSuccessful = false;
+
 
     public bool AddCurrency(int amount)
     {
         playerCurrency += amount;
-        return wasSuccessful = true;
+        return true;
     }
 
     public bool RemoveCurrency(int amount)
     {
         if (playerCurrency - amount < 0)
         {
-            return wasSuccessful = false;
+            return false;
         }
         else
         {
             playerCurrency -= amount;
-            return wasSuccessful = true;
+            return true;
         }
     }
 
@@ -34,12 +34,12 @@ public class Currency : MonoBehaviour
     {
         if (amount < 0)
         {
-            return wasSuccessful = false;
+            return false;
         }
         else
         {
             playerCurrency = amount;
-            return wasSuccessful = true;
+            return true;
         }
     }
 
@@ -47,11 +47,11 @@ public class Currency : MonoBehaviour
     {
         if (playerCurrency - amount < 0)
         {
-           return wasSuccessful = false;
+           return false;
         }
         else
         {
-            return wasSuccessful = true;
+            return true;
         }
     }
 }
