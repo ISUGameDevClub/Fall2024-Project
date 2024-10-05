@@ -30,6 +30,7 @@ public class Currency : MonoBehaviour
     {
         return playerCurrency;
     }
+    
     public bool SetCurrency(int amount)
     {
         if (amount < 0)
@@ -43,7 +44,7 @@ public class Currency : MonoBehaviour
         }
     }
 
-    public bool CanDeductCurrency(int amount)
+    public bool CanDeductCurrency(int amount) // Is this method necessary?
     {
         if (playerCurrency - amount < 0)
         {
