@@ -13,26 +13,41 @@ public enum EnemyMovementState {
 public class EnemyMovement : EnemyScript
 {
     NavMeshAgent navAgent;
-
-    public EnemyMovementState state {get; private set;} = EnemyMovementState.Wander;
-
-    [SerializeField] Transform wanderZonePointA;
-    [SerializeField] Transform wanderZonePointB;
     [SerializeField] LayerMask groundLayer;
 
+    // movement behavior state
+    public EnemyMovementState state {get; private set;}
+
+
+    // wander zone box bounds. The enemy will wander to random points within this box
+    [SerializeField] Transform wanderZonePointA;
+    [SerializeField] Transform wanderZonePointB;
+
+    // min and max delay between wandering around to new locations
     [SerializeField] float wanderNewLocationDelayMin = 1f;
     [SerializeField] float wanderNewLocationDelayMax = 15f;
 
+    // delay between persuit navigation updates targeting the player
     [SerializeField] float persuitDelay = 0.2f;
 
+    // speed of the enemy when persuing the player
     [SerializeField] float persuitSpeed = 5f;
     float standardSpeed;
 
+    // speed of the enemy when fleeing from the player
     [SerializeField] float fleeSpeed = 5f;
+    
+    // distance in direction away from the player to flee to
     [SerializeField] float fleeDistance = 5f;
+
+    // delay between flee navigation updates
     [SerializeField] float fleeDelay = 0.5f;
 
+    // time until the enemy returns to the wander state after not seeing the player
     [SerializeField] float fleeTimeUntilZoneReturn = 15f;
+
+    // behavior state when player is seen
+    [SerializeField] EnemyMovementState stateWhenPlayerSeen = EnemyMovementState.Wander;
 
 
     Coroutine movementCoroutine;
@@ -45,11 +60,16 @@ public class EnemyMovement : EnemyScript
     }
 
     private void Start() {
-        SetFlee();
+        SetWander();
+
+        core.playerDetector.playerDetected += OnPlayerDetected;
+    }
+
+    private void OnPlayerDetected() {
+        SetMovementState(stateWhenPlayerSeen);
     }
 
     public void SetMovementState(EnemyMovementState newState) {
-        state = newState;
         switch (newState) {
             case EnemyMovementState.Wander:
                 if (state != EnemyMovementState.Wander) {
@@ -73,6 +93,7 @@ public class EnemyMovement : EnemyScript
         if (movementCoroutine != null) {
             StopCoroutine(movementCoroutine);
         }
+        state = EnemyMovementState.Persuit;
         movementCoroutine = StartCoroutine(PersuePlayer());
         navAgent.speed = persuitSpeed;
     }
@@ -81,6 +102,7 @@ public class EnemyMovement : EnemyScript
         if (movementCoroutine != null) {
             StopCoroutine(movementCoroutine);
         }
+        state = EnemyMovementState.Wander;
         movementCoroutine = StartCoroutine(Wander());
         navAgent.speed = standardSpeed;
     }
@@ -89,6 +111,7 @@ public class EnemyMovement : EnemyScript
         if (movementCoroutine != null) {
             StopCoroutine(movementCoroutine);
         }
+        state = EnemyMovementState.Flee;
         movementCoroutine = StartCoroutine(FleePlayer());
         navAgent.speed = fleeSpeed;
     }
@@ -125,7 +148,7 @@ public class EnemyMovement : EnemyScript
                 }
 
             } while ( searchingForNewWanderPoint );
-
+            Debug.Log("Wandering to " + navAgent.destination);
             // wait for a random amount of time before wandering again
             yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
         }

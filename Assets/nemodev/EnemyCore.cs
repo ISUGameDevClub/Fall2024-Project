@@ -12,6 +12,10 @@ public class EnemyCore : MonoBehaviour
     [field: SerializeField]
     public Transform player {get; private set;}
 
+
+    [field: SerializeField]
+    public EnemyPlayerDetector playerDetector {get; private set;}
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
