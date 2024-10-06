@@ -36,7 +36,7 @@ public class EnemyMovement : EnemyScript
 
     // speed of the enemy when fleeing from the player
     [SerializeField] float fleeSpeed = 5f;
-    
+
     // distance in direction away from the player to flee to
     [SerializeField] float fleeDistance = 5f;
 
@@ -123,9 +123,16 @@ public class EnemyMovement : EnemyScript
     }
 
     IEnumerator Wander() {
-        // pick a new spot to wander to by raycasting down from a random point in the wander zone
+        
 
+
+        // pick a new spot to wander to by raycasting down from a random point in the wander zone
         while(true) {
+
+            // wait for a random amount of time before wandering
+            yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
+
+
             bool searchingForNewWanderPoint = true;
             do
             {
@@ -149,8 +156,7 @@ public class EnemyMovement : EnemyScript
 
             } while ( searchingForNewWanderPoint );
             Debug.Log("Wandering to " + navAgent.destination);
-            // wait for a random amount of time before wandering again
-            yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
+            
         }
     }
 
