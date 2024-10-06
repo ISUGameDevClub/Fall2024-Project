@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class EnemyCore : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field: SerializeField]
+    public Rigidbody rb {get; private set;}
 
-    // Update is called once per frame
-    void Update()
+
+    // this should be handeled differently once we have a Game Manager and such
+    [field: SerializeField]
+    public Transform player {get; private set;}
+
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
     {
-        
+        // set all cores
+        foreach (EnemyScript script in GetComponentsInChildren<EnemyScript>()) {
+            script.SetCore(this);
+        }
     }
 }
