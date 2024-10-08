@@ -8,19 +8,25 @@ public class EnemyCore : MonoBehaviour
     public Rigidbody rb {get; private set;}
 
 
-    // this should be handeled differently once we have a Game Manager and such
-    [field: SerializeField]
+    // this should be handeled differently once we have a Game Manager and such TODO
+    // [field: SerializeField]
     public Transform player {get; private set;}
 
 
     [field: SerializeField]
     public EnemyPlayerDetector playerDetector {get; private set;}
 
+    [field: SerializeField]
+    public EnemyMovement movement {get; private set;}
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
     void Awake()
     {
+        // INEFFICIENT!! FIX LATER WHEN GAME MANAGER [TODO]
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
         // set all cores
         foreach (EnemyScript script in GetComponentsInChildren<EnemyScript>()) {
             script.SetCore(this);

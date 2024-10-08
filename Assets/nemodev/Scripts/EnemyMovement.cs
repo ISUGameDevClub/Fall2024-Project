@@ -117,7 +117,7 @@ public class EnemyMovement : EnemyScript
     }
 
 
-    void SetWanderZone(Transform pointA, Transform pointB) {
+    public void SetWanderZone(Transform pointA, Transform pointB) {
         wanderZonePointA = pointA;
         wanderZonePointB = pointB;
     }
@@ -155,7 +155,7 @@ public class EnemyMovement : EnemyScript
                 }
 
             } while ( searchingForNewWanderPoint );
-            Debug.Log("Wandering to " + navAgent.destination);
+            // Debug.Log("Wandering to " + navAgent.destination);
             
         }
     }
@@ -188,14 +188,14 @@ public class EnemyMovement : EnemyScript
         }
     }
 
-    void OnDrawGizmos() {
-        if (wanderZonePointA != null && wanderZonePointB != null) {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(
-                (wanderZonePointA.position + wanderZonePointB.position) / 2, 
-                new Vector3(Mathf.Abs(wanderZonePointA.position.x - wanderZonePointB.position.x), 
-                1, 
-                Mathf.Abs(wanderZonePointA.position.z - wanderZonePointB.position.z)));
-        }
-    }
+    // void OnDrawGizmos() {
+    //     if (wanderZonePointA != null && wanderZonePointB != null) {
+    //         Gizmos.color = Color.red;
+    //         Gizmos.DrawWireCube(
+    //             (wanderZonePointA.position + wanderZonePointB.position) / 2, 
+    //             new Vector3(Mathf.Abs(wanderZonePointA.position.x - wanderZonePointB.position.x), 
+    //             1, 
+    //             Mathf.Abs(wanderZonePointA.position.z - wanderZonePointB.position.z)));
+    //     }
+    // }
 }
