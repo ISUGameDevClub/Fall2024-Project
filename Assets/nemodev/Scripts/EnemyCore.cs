@@ -19,6 +19,9 @@ public class EnemyCore : MonoBehaviour
     [field: SerializeField]
     public EnemyMovement movement {get; private set;}
 
+    [field: SerializeField]
+    public EnemyHealth health {get; private set;}
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
