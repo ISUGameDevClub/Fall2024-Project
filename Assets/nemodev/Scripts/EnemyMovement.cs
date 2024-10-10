@@ -93,7 +93,7 @@ public class EnemyMovement : EnemyScript
     }
 
     public void SetMovementState(EnemyMovementState newState) {
-        if (core.Health.isDead) {
+        if (core.health.isDead) {
             return;
         }
         switch (newState) {

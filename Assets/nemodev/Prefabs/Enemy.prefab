@@ -170,13 +170,14 @@ GameObject:
   - component: {fileID: 3268664182466908942}
   - component: {fileID: 2795993993066019701}
   - component: {fileID: 5062477841862693091}
+  - component: {fileID: 6552441807411352316}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3268664182466908942
 Transform:
   m_ObjectHideFlags: 0
@@ -208,6 +209,7 @@ MonoBehaviour:
   <rb>k__BackingField: {fileID: 6347618948024736738}
   <playerDetector>k__BackingField: {fileID: 4425976048054530435}
   <movement>k__BackingField: {fileID: 5062477841862693091}
+  <health>k__BackingField: {fileID: 6552441807411352316}
 --- !u!114 &5062477841862693091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,11 +231,25 @@ MonoBehaviour:
   wanderNewLocationDelayMax: 15
   persuitDelay: 0.2
   persuitSpeed: 8
+  timeUntilWanderAfterPlayerLost: 5
   fleeSpeed: 5
   fleeDistance: 25
   fleeDelay: 0.3
   fleeTimeUntilZoneReturn: 15
   stateWhenPlayerSeen: 1
+--- !u!114 &6552441807411352316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290817894688885905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f16e340cfdfbe61d948e8596185ec9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
 --- !u!1 &5098430921110553177
 GameObject:
   m_ObjectHideFlags: 0
