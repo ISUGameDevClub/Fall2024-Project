@@ -575,11 +575,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393019826}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f16e340cfdfbe61d948e8596185ec9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+--- !u!114 &1393019831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393019826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a9c5315e562d341af4c0a114a55f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItems: []
+  dropChances: 0.5
 --- !u!1 &1395012576
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +971,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4290817894688885905, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1393019830}
+    - targetCorrespondingSourceObject: {fileID: 4290817894688885905, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1393019831}
   m_SourcePrefab: {fileID: 100100000, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
 --- !u!1001 &7808968081624061532
 PrefabInstance:
