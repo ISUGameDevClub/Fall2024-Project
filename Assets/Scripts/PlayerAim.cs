@@ -10,6 +10,10 @@ public class PlayerAim : MonoBehaviour
     public bool canfire;
     private float timer;
     public float timeBetweenFire = 0.5f;
+    public int bulletCount = 6;
+    int bulletMax = 6;
+    public float reloading;
+    public float reloadTimer = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,15 @@ public class PlayerAim : MonoBehaviour
             transform.LookAt(mousePos);
             
         }
+        if (bulletCount < bulletMax)
+        {
+            reloading += Time.deltaTime;
+            if (reloading >= reloadTimer)
+            {
+                bulletCount++;
+                reloading = 0;
+            }
+        }
         if (!canfire)
         {
             timer += Time.deltaTime;
@@ -40,10 +53,11 @@ public class PlayerAim : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && canfire)
+        if (Input.GetMouseButtonDown(0) && canfire && bulletCount > 0)
         {
             canfire = false;
             Shoot();
+            bulletCount -= 1;
         }
 
         void Shoot()
