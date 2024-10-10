@@ -9,6 +9,7 @@ public enum EnemyMovementState {
     Persuit,
     Flee,
     Wait,
+
 }
 
 public class EnemyMovement : EnemyScript
@@ -92,6 +93,9 @@ public class EnemyMovement : EnemyScript
     }
 
     public void SetMovementState(EnemyMovementState newState) {
+        if (core.Health.isDead) {
+            return;
+        }
         switch (newState) {
             case EnemyMovementState.Wander:
                 if (state != EnemyMovementState.Wander) {
