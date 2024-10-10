@@ -8,6 +8,7 @@ public enum EnemyMovementState {
     Wander,
     Persuit,
     Flee,
+    Wait,
 }
 
 public class EnemyMovement : EnemyScript
@@ -32,6 +33,9 @@ public class EnemyMovement : EnemyScript
 
     // speed of the enemy when persuing the player
     [SerializeField] float persuitSpeed = 5f;
+
+    [SerializeField] float timeUntilWanderAfterPlayerLost = 5f;
+
     float standardSpeed;
 
     // speed of the enemy when fleeing from the player
@@ -63,10 +67,28 @@ public class EnemyMovement : EnemyScript
         SetWander();
 
         core.playerDetector.playerDetected += OnPlayerDetected;
+        core.playerDetector.playerLost += OnPlayerLost;
     }
 
     private void OnPlayerDetected() {
         SetMovementState(stateWhenPlayerSeen);
+    }
+
+    private void OnPlayerLost() {
+        SetWait(timeUntilWanderAfterPlayerLost);
+    }
+
+    public void SetWait(float waitTime) {
+        if (movementCoroutine != null) {
+            StopCoroutine(movementCoroutine);
+        }
+        state = EnemyMovementState.Wait;
+        movementCoroutine = StartCoroutine(Wait(waitTime));
+    }
+
+    IEnumerator Wait(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        SetMovementState(EnemyMovementState.Wander);
     }
 
     public void SetMovementState(EnemyMovementState newState) {
