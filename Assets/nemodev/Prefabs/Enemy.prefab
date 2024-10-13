@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 987319130486621083}
   m_Layer: 0
   m_Name: Enemy Rb
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!195 &987319130486621083
 NavMeshAgent:
   m_ObjectHideFlags: 0

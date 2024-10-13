@@ -69,6 +69,15 @@ public class EnemyMovement : EnemyScript
 
         core.playerDetector.playerDetected += OnPlayerDetected;
         core.playerDetector.playerLost += OnPlayerLost;
+        core.health.enemyDeath += OnEnemyDeath;
+    }
+
+    private void OnEnemyDeath() {
+        if (movementCoroutine != null) {
+            StopCoroutine(movementCoroutine);
+        }
+        //disable nav agent
+        navAgent.enabled = false;
     }
 
     private void OnPlayerDetected() {
