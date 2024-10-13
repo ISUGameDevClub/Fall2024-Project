@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyHealth : EnemyScript
 {
     public Action enemyDeath;
+    public Action enemyHit;
 
     [SerializeField] public float maxHealth = 10f;
     
@@ -17,7 +18,10 @@ public class EnemyHealth : EnemyScript
 
     public void TakeDamage(float damage) {
         health -= damage;
+        enemyHit?.Invoke();
         if (health <= 0) {
+            core.rb.constraints = RigidbodyConstraints.None;
+            
             enemyDeath.Invoke();
         }
     }

@@ -31,8 +31,15 @@ public class PROTOPlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) {
             // loop through all enemies in trigger
             foreach (EnemyCore enemy in enemiesInTrigger) {
+                
                 // damage enemy
-                enemy.health.TakeDamage(10f);
+                enemy.health.TakeDamage(5f);
+
+                // knockback enemy
+                Vector3 direction = enemy.rb.transform.position - transform.position;
+                direction.y = 0;
+                enemy.knockback.Knockback(direction, 5f);
+                
             }
         }
     }

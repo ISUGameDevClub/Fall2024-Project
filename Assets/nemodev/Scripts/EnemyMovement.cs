@@ -14,7 +14,7 @@ public enum EnemyMovementState {
 
 public class EnemyMovement : EnemyScript
 {
-    NavMeshAgent navAgent;
+    public NavMeshAgent navAgent {get; private set;}
     [SerializeField] LayerMask groundLayer;
 
     // movement behavior state
@@ -53,7 +53,7 @@ public class EnemyMovement : EnemyScript
 
     // behavior state when player is seen
     [SerializeField] EnemyMovementState stateWhenPlayerSeen = EnemyMovementState.Wander;
-
+    [field: SerializeField] public EnemyMovementState stateWhenEnemyHit {get; private set;} = EnemyMovementState.Persuit;
 
     Coroutine movementCoroutine;
 
@@ -70,6 +70,11 @@ public class EnemyMovement : EnemyScript
         core.playerDetector.playerDetected += OnPlayerDetected;
         core.playerDetector.playerLost += OnPlayerLost;
         core.health.enemyDeath += OnEnemyDeath;
+        core.health.enemyHit += OnEnemyHit;
+    }
+
+    private void OnEnemyHit() {
+        SetMovementState(stateWhenEnemyHit);
     }
 
     private void OnEnemyDeath() {
@@ -164,9 +169,11 @@ public class EnemyMovement : EnemyScript
         // pick a new spot to wander to by raycasting down from a random point in the wander zone
         while(true) {
 
-            // wait for a random amount of time before wandering
-            yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
+            
 
+            while(core.knockback.isBeingKnockedBack) {
+                yield return new WaitForFixedUpdate();
+            }
 
             bool searchingForNewWanderPoint = true;
             do
@@ -192,11 +199,16 @@ public class EnemyMovement : EnemyScript
             } while ( searchingForNewWanderPoint );
             // Debug.Log("Wandering to " + navAgent.destination);
             
+            // wait for a random amount of time before wandering
+            yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
         }
     }
 
     IEnumerator PersuePlayer() {
         while (true) {
+            while(core.knockback.isBeingKnockedBack) {
+                yield return new WaitForFixedUpdate();
+            }
             navAgent.SetDestination(core.player.position);
             yield return new WaitForSeconds( persuitDelay);
         }
@@ -205,6 +217,9 @@ public class EnemyMovement : EnemyScript
     IEnumerator FleePlayer() {
         float timeLastSeenPlayer = Time.time;
         while (true) {
+            while(core.knockback.isBeingKnockedBack) {
+                yield return new WaitForFixedUpdate();
+            }
             // if close to player, flee in the opposite direction
             float dist = Vector3.Distance(core.rb.transform.position, core.player.position);
 
