@@ -25,6 +25,9 @@ public class EnemyCore : MonoBehaviour
     [field: SerializeField]
     public EnemyKnockback knockback {get; private set;}
 
+    [field: SerializeField]
+    public EnemyAttack attack {get; private set;}
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>

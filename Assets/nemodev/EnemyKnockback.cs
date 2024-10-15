@@ -25,10 +25,10 @@ public class EnemyKnockback : EnemyScript
     private IEnumerator WaitUntilStopped() {
         yield return new WaitForSeconds(0.1f);// wait for the enemy to start moving from force
         while (core.rb.velocity.magnitude > 0.5f) {
-            Debug.Log(core.rb.velocity.magnitude);
+            // Debug.Log(core.rb.velocity.magnitude);
             yield return new WaitForFixedUpdate();
         }
-        Debug.Log("Stopped, resuming navigation");
+        // Debug.Log("Stopped, resuming navigation");
         
         if (!core.health.isDead) {
             core.movement.navAgent.enabled = true;

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,12 +8,21 @@ public enum EnemyMovementState {
     Wander,
     Persuit,
     Flee,
+    Bunker,
     Wait,
 
 }
 
+public enum BunkerExitCondition {
+    Time,
+    PlayerLost,
+}
+
 public class EnemyMovement : EnemyScript
 {
+
+    public Action<EnemyMovementState> behaviorStateChange;
+
     public NavMeshAgent navAgent {get; private set;}
     [SerializeField] LayerMask groundLayer;
 
@@ -34,6 +43,7 @@ public class EnemyMovement : EnemyScript
 
     // speed of the enemy when persuing the player
     [SerializeField] float persuitSpeed = 5f;
+    [SerializeField] float persuitDistance = 0f;
 
     [SerializeField] float timeUntilWanderAfterPlayerLost = 5f;
 
@@ -55,6 +65,10 @@ public class EnemyMovement : EnemyScript
     [SerializeField] EnemyMovementState stateWhenPlayerSeen = EnemyMovementState.Wander;
     [field: SerializeField] public EnemyMovementState stateWhenEnemyHit {get; private set;} = EnemyMovementState.Persuit;
 
+    [SerializeField] bool changeStateAfterAttack = false;
+    [SerializeField] bool changeStateAfterAttackRequiresMeleeConnect = false;
+    [SerializeField] EnemyMovementState stateAfterAttack = EnemyMovementState.Flee;
+
     Coroutine movementCoroutine;
 
 
@@ -71,6 +85,15 @@ public class EnemyMovement : EnemyScript
         core.playerDetector.playerLost += OnPlayerLost;
         core.health.enemyDeath += OnEnemyDeath;
         core.health.enemyHit += OnEnemyHit;
+        core.attack.attackExecute += OnAttack;
+    }
+
+    private void OnAttack(bool connect) {
+        if (changeStateAfterAttack) {
+            if (!changeStateAfterAttackRequiresMeleeConnect || connect) {
+                SetMovementState(stateAfterAttack);
+            }
+        }
     }
 
     private void OnEnemyHit() {
@@ -90,7 +113,9 @@ public class EnemyMovement : EnemyScript
     }
 
     private void OnPlayerLost() {
-        SetWait(timeUntilWanderAfterPlayerLost);
+        if ( state == EnemyMovementState.Persuit) {
+            SetWait(timeUntilWanderAfterPlayerLost);
+        }
     }
 
     public void SetWait(float waitTime) {
@@ -98,6 +123,7 @@ public class EnemyMovement : EnemyScript
             StopCoroutine(movementCoroutine);
         }
         state = EnemyMovementState.Wait;
+        behaviorStateChange?.Invoke(state);
         movementCoroutine = StartCoroutine(Wait(waitTime));
     }
 
@@ -134,6 +160,7 @@ public class EnemyMovement : EnemyScript
             StopCoroutine(movementCoroutine);
         }
         state = EnemyMovementState.Persuit;
+        behaviorStateChange?.Invoke(state);
         movementCoroutine = StartCoroutine(PersuePlayer());
         navAgent.speed = persuitSpeed;
     }
@@ -143,6 +170,7 @@ public class EnemyMovement : EnemyScript
             StopCoroutine(movementCoroutine);
         }
         state = EnemyMovementState.Wander;
+        behaviorStateChange?.Invoke(state);
         movementCoroutine = StartCoroutine(Wander());
         navAgent.speed = standardSpeed;
     }
@@ -152,6 +180,7 @@ public class EnemyMovement : EnemyScript
             StopCoroutine(movementCoroutine);
         }
         state = EnemyMovementState.Flee;
+        behaviorStateChange?.Invoke(state);
         movementCoroutine = StartCoroutine(FleePlayer());
         navAgent.speed = fleeSpeed;
     }
@@ -180,9 +209,9 @@ public class EnemyMovement : EnemyScript
             {
                 // pick a random point in the wander zone
                 Vector3 randomRaycastStartPoint = new Vector3(
-                    Random.Range(wanderZonePointA.position.x, wanderZonePointB.position.x),
+                    UnityEngine.Random.Range(wanderZonePointA.position.x, wanderZonePointB.position.x),
                     wanderZonePointA.position.y + 50,
-                    Random.Range(wanderZonePointA.position.z, wanderZonePointB.position.z)
+                    UnityEngine.Random.Range(wanderZonePointA.position.z, wanderZonePointB.position.z)
                 );
 
                 // create a raycast from the random point
@@ -200,7 +229,7 @@ public class EnemyMovement : EnemyScript
             // Debug.Log("Wandering to " + navAgent.destination);
             
             // wait for a random amount of time before wandering
-            yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
         }
     }
 
@@ -209,7 +238,15 @@ public class EnemyMovement : EnemyScript
             while(core.knockback.isBeingKnockedBack) {
                 yield return new WaitForFixedUpdate();
             }
-            navAgent.SetDestination(core.player.position);
+
+            // direction from player to enemy
+            Vector3 direction = core.player.position - core.rb.transform.position;
+            direction.y = 0;
+            direction.Normalize();
+
+            Vector3 destination = core.player.position - direction * persuitDistance;
+
+            navAgent.SetDestination(destination);
             yield return new WaitForSeconds( persuitDelay);
         }
     }
@@ -238,14 +275,4 @@ public class EnemyMovement : EnemyScript
         }
     }
 
-    // void OnDrawGizmos() {
-    //     if (wanderZonePointA != null && wanderZonePointB != null) {
-    //         Gizmos.color = Color.red;
-    //         Gizmos.DrawWireCube(
-    //             (wanderZonePointA.position + wanderZonePointB.position) / 2, 
-    //             new Vector3(Mathf.Abs(wanderZonePointA.position.x - wanderZonePointB.position.x), 
-    //             1, 
-    //             Mathf.Abs(wanderZonePointA.position.z - wanderZonePointB.position.z)));
-    //     }
-    // }
 }
