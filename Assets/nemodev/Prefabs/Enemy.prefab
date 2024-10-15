@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 987319130486621083}
   m_Layer: 0
   m_Name: Enemy Rb
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,10 +133,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 80
+  m_CollisionDetection: 2
 --- !u!195 &987319130486621083
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -146,7 +146,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3129906355149891572}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -170,6 +170,8 @@ GameObject:
   - component: {fileID: 3268664182466908942}
   - component: {fileID: 2795993993066019701}
   - component: {fileID: 5062477841862693091}
+  - component: {fileID: 6552441807411352316}
+  - component: {fileID: 4430523169215657705}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -208,6 +210,8 @@ MonoBehaviour:
   <rb>k__BackingField: {fileID: 6347618948024736738}
   <playerDetector>k__BackingField: {fileID: 4425976048054530435}
   <movement>k__BackingField: {fileID: 5062477841862693091}
+  <health>k__BackingField: {fileID: 6552441807411352316}
+  <knockback>k__BackingField: {fileID: 4430523169215657705}
 --- !u!114 &5062477841862693091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,11 +233,38 @@ MonoBehaviour:
   wanderNewLocationDelayMax: 15
   persuitDelay: 0.2
   persuitSpeed: 8
+  timeUntilWanderAfterPlayerLost: 5
   fleeSpeed: 5
   fleeDistance: 25
   fleeDelay: 0.3
   fleeTimeUntilZoneReturn: 15
   stateWhenPlayerSeen: 1
+  stateWhenEnemyHit: 1
+--- !u!114 &6552441807411352316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290817894688885905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f16e340cfdfbe61d948e8596185ec9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+--- !u!114 &4430523169215657705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4290817894688885905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac79adc12329185fe9503b30aa8fa066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5098430921110553177
 GameObject:
   m_ObjectHideFlags: 0
