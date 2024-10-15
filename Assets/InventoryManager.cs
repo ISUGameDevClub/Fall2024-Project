@@ -14,27 +14,28 @@ public class InventoryManager : MonoBehaviour
         public Sprite icon;
     }
 
-    public void AddItem(Item item)
+    public void AddItem(string itemName)
     {
-        int i = inventory.IndexOf(item);
-        //if list contains the item already, increase quantity
-        if (i != -1)
-            inventory[i].quantity++;
-        //else add the item to inventory
-        else
-            inventory.Add(item);
+        //cycle through list and find item with matching name, then increase quantity
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (inventory[i].itemName.Equals(itemName))
+                inventory[i].quantity++;
+        }
     }
 
-    public void RemoveItem(Item item)//type
+    public void RemoveItem(string itemName)
     {
-        if(inventory.Contains(item))
+        //cycle through list and find item with matching name, then decrease quantity
+        for (int i = 0; i < inventory.Count; i++)
         {
-            //decrease quantity of item
-            int i = inventory.IndexOf(item);
-            inventory[i].quantity--;
-            //if no more of item left, remove from list
-            if (inventory[i].quantity <= 0)
-                inventory.RemoveAt(i);
-        }     
+            if (inventory[i].itemName.Equals(itemName))
+                inventory[i].quantity--;
+        }
+    }
+
+    public List<Item> GetAll()
+    {
+        return inventory;
     }
 }
