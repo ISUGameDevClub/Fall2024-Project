@@ -289,6 +289,7 @@ MonoBehaviour:
     m_Bits: 256
   wanderZonePointA: {fileID: 0}
   wanderZonePointB: {fileID: 0}
+  initialMovementState: 0
   wanderNewLocationDelayMin: 5
   wanderNewLocationDelayMax: 15
   persuitDelay: 0.2
@@ -299,7 +300,14 @@ MonoBehaviour:
   fleeDistance: 25
   fleeDelay: 0.3
   fleeTimeUntilZoneReturn: 15
+  bunkerExitCondition: 0
+  bunkerExitTime: 5
+  resetTimerWhenHit: 1
+  stateAfterBunker: 0
+  changeStateWhenPlayerSeen: 1
   stateWhenPlayerSeen: 1
+  changeStateWhenEnemyHit: 0
+  changeStateWhenEnemyHitRequiresDamage: 0
   <stateWhenEnemyHit>k__BackingField: 1
   changeStateAfterAttack: 0
   changeStateAfterAttackRequiresMeleeConnect: 0

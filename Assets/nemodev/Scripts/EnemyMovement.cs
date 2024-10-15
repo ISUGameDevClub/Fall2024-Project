@@ -34,6 +34,9 @@ public class EnemyMovement : EnemyScript
     [SerializeField] Transform wanderZonePointA;
     [SerializeField] Transform wanderZonePointB;
 
+    [SerializeField] EnemyMovementState initialMovementState = EnemyMovementState.Wander;
+
+
     // min and max delay between wandering around to new locations
     [SerializeField] float wanderNewLocationDelayMin = 1f;
     [SerializeField] float wanderNewLocationDelayMax = 15f;
@@ -61,8 +64,18 @@ public class EnemyMovement : EnemyScript
     // time until the enemy returns to the wander state after not seeing the player
     [SerializeField] float fleeTimeUntilZoneReturn = 15f;
 
+
+    [SerializeField] BunkerExitCondition bunkerExitCondition = BunkerExitCondition.Time;
+    [SerializeField] float bunkerExitTime = 5f;
+    [SerializeField] bool resetTimerWhenHit = true;
+    [SerializeField] EnemyMovementState stateAfterBunker = EnemyMovementState.Wander;
+
+
     // behavior state when player is seen
+    [SerializeField] bool changeStateWhenPlayerSeen = false;
     [SerializeField] EnemyMovementState stateWhenPlayerSeen = EnemyMovementState.Wander;
+    [SerializeField] bool changeStateWhenEnemyHit = false;
+    [SerializeField] bool changeStateWhenEnemyHitRequiresDamage = false;
     [field: SerializeField] public EnemyMovementState stateWhenEnemyHit {get; private set;} = EnemyMovementState.Persuit;
 
     [SerializeField] bool changeStateAfterAttack = false;
@@ -73,13 +86,22 @@ public class EnemyMovement : EnemyScript
 
 
 
-    void Awake(){
-        navAgent = GetComponentInChildren<NavMeshAgent>();
-        standardSpeed = navAgent.speed;
-    }
+    // void Awake(){
+        
+    // }
 
     private void Start() {
-        SetWander();
+        navAgent = GetComponentInChildren<NavMeshAgent>();
+        standardSpeed = navAgent.speed;
+
+        if (initialMovementState == EnemyMovementState.Wander) {
+            SetWander();
+        }
+        else
+        {
+            SetMovementState(initialMovementState);
+        }
+
 
         core.playerDetector.playerDetected += OnPlayerDetected;
         core.playerDetector.playerLost += OnPlayerLost;
@@ -91,13 +113,20 @@ public class EnemyMovement : EnemyScript
     private void OnAttack(bool connect) {
         if (changeStateAfterAttack) {
             if (!changeStateAfterAttackRequiresMeleeConnect || connect) {
-                SetMovementState(stateAfterAttack);
+                SetMovementState(stateAfterBunker);
             }
         }
     }
 
-    private void OnEnemyHit() {
-        SetMovementState(stateWhenEnemyHit);
+    private void OnEnemyHit(float damage) {
+        if (changeStateWhenEnemyHit)
+            if ((changeStateWhenEnemyHitRequiresDamage && damage > 0) || !changeStateWhenEnemyHitRequiresDamage) {
+                SetMovementState(stateWhenEnemyHit);
+            }
+        
+        if (resetTimerWhenHit && state == EnemyMovementState.Bunker) {
+            timeEnteredBunker = Time.time;
+        }
     }
 
     private void OnEnemyDeath() {
@@ -109,7 +138,15 @@ public class EnemyMovement : EnemyScript
     }
 
     private void OnPlayerDetected() {
-        SetMovementState(stateWhenPlayerSeen);
+
+        if (state == EnemyMovementState.Bunker && resetTimerWhenHit) {
+            SetMovementState(EnemyMovementState.Persuit);
+        }
+
+        if (changeStateWhenPlayerSeen)
+            SetMovementState(stateWhenPlayerSeen);
+
+        
     }
 
     private void OnPlayerLost() {
@@ -138,7 +175,7 @@ public class EnemyMovement : EnemyScript
         }
         switch (newState) {
             case EnemyMovementState.Wander:
-                if (state != EnemyMovementState.Wander) {
+                if ( state != EnemyMovementState.Wander) {
                     SetWander();
                 }
                 break;
@@ -152,7 +189,22 @@ public class EnemyMovement : EnemyScript
                     SetFlee();
                 }
                 break;
+            case EnemyMovementState.Bunker:
+                if (state != EnemyMovementState.Bunker) {
+                    SetBunker();
+                }
+                break;
         }
+    }
+
+    private void SetBunker() {
+        if (movementCoroutine != null) {
+            StopCoroutine(movementCoroutine);
+        }
+        state = EnemyMovementState.Bunker;
+        behaviorStateChange?.Invoke(state);
+        movementCoroutine = StartCoroutine(Bunker());
+        // navAgent.speed = 0;
     }
 
     private void SetPersuit() {
@@ -272,6 +324,26 @@ public class EnemyMovement : EnemyScript
                 }
             }
             yield return new WaitForSeconds( fleeDelay );
+        }
+    }
+
+    float timeEnteredBunker = 0f;
+
+    IEnumerator Bunker() {
+        timeEnteredBunker = Time.time;
+        while (true) {
+            navAgent.SetDestination(core.rb.transform.position);
+
+
+            switch (bunkerExitCondition) {
+                case BunkerExitCondition.Time:
+                    if (Time.time - timeEnteredBunker > bunkerExitTime) {
+                        SetMovementState(stateAfterBunker);
+                    }
+                    break;
+                case BunkerExitCondition.PlayerLost:
+                    break; // handeled in player lost event
+            }
         }
     }
 

@@ -11,7 +11,7 @@ public enum AttackType {
 public class EnemyHealth : EnemyScript
 {
     public Action enemyDeath;
-    public Action enemyHit;
+    public Action<float> enemyHit;
 
     [SerializeField] public float maxHealth = 10f;
     [SerializeField] private bool bunkerNegatesMelee = false;
@@ -27,15 +27,17 @@ public class EnemyHealth : EnemyScript
 
         if (core.movement.state == EnemyMovementState.Bunker) {
             if (type == AttackType.Melee && bunkerNegatesMelee) {
+                enemyHit?.Invoke(0f);
                 return;
             }
             if (type == AttackType.Ranged && bunkerNegatesRanged) {
+                enemyHit?.Invoke(0f);
                 return;
             }
         }
 
         health -= damage;
-        enemyHit?.Invoke();
+        enemyHit?.Invoke(damage);
         if (health <= 0) {
             core.rb.constraints = RigidbodyConstraints.None;
             
