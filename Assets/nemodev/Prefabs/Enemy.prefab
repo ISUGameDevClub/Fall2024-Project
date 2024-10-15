@@ -53,7 +53,7 @@ MonoBehaviour:
   attackWindup: 0.1
   meleeRange: 2
   meleeDamage: 10
-  projectilePrefab: {fileID: 5790262235823681162, guid: 866bc0a1b7fb4494cb7a33fbd9427045, type: 3}
+  projectilePrefab: {fileID: 5790262235823681162, guid: 2fe400e4ec3ecd81588b3bc8a2572b80, type: 3}
   projectileSpeed: 10
   projectileAccuracy: 10
   projectilesTooShoot: 1

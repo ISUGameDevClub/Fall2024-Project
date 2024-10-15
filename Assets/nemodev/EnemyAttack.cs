@@ -114,7 +114,7 @@ public class EnemyAttack : EnemyScript
             attackExecute?.Invoke(true);
             // calculate the direction to shoot the projectile
             Vector3 direction = core.player.transform.position - transform.position;
-            direction.y = 0;
+            // direction.y = 0;
             direction.Normalize();
             // add some randomness to the direction
             direction = Quaternion.Euler(0,UnityEngine.Random.Range(-projectileAccuracy,projectileAccuracy),0) * direction;
