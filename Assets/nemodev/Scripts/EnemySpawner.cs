@@ -113,7 +113,7 @@ public class EnemySpawner : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube( 
             (spawnZonePointA.position + spawnZonePointB.position) / 2, 
-            spawnZonePointB.position - spawnZonePointA.position);
+            spawnZonePointB.position - spawnZonePointA.position + Vector3.up * 50f);
     }
 
 }

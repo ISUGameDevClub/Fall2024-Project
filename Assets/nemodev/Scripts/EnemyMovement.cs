@@ -8,11 +8,13 @@ public enum EnemyMovementState {
     Wander,
     Persuit,
     Flee,
+    Wait,
+
 }
 
 public class EnemyMovement : EnemyScript
 {
-    NavMeshAgent navAgent;
+    public NavMeshAgent navAgent {get; private set;}
     [SerializeField] LayerMask groundLayer;
 
     // movement behavior state
@@ -32,6 +34,9 @@ public class EnemyMovement : EnemyScript
 
     // speed of the enemy when persuing the player
     [SerializeField] float persuitSpeed = 5f;
+
+    [SerializeField] float timeUntilWanderAfterPlayerLost = 5f;
+
     float standardSpeed;
 
     // speed of the enemy when fleeing from the player
@@ -48,7 +53,7 @@ public class EnemyMovement : EnemyScript
 
     // behavior state when player is seen
     [SerializeField] EnemyMovementState stateWhenPlayerSeen = EnemyMovementState.Wander;
-
+    [field: SerializeField] public EnemyMovementState stateWhenEnemyHit {get; private set;} = EnemyMovementState.Persuit;
 
     Coroutine movementCoroutine;
 
@@ -63,13 +68,48 @@ public class EnemyMovement : EnemyScript
         SetWander();
 
         core.playerDetector.playerDetected += OnPlayerDetected;
+        core.playerDetector.playerLost += OnPlayerLost;
+        core.health.enemyDeath += OnEnemyDeath;
+        core.health.enemyHit += OnEnemyHit;
+    }
+
+    private void OnEnemyHit() {
+        SetMovementState(stateWhenEnemyHit);
+    }
+
+    private void OnEnemyDeath() {
+        if (movementCoroutine != null) {
+            StopCoroutine(movementCoroutine);
+        }
+        //disable nav agent
+        navAgent.enabled = false;
     }
 
     private void OnPlayerDetected() {
         SetMovementState(stateWhenPlayerSeen);
     }
 
+    private void OnPlayerLost() {
+        SetWait(timeUntilWanderAfterPlayerLost);
+    }
+
+    public void SetWait(float waitTime) {
+        if (movementCoroutine != null) {
+            StopCoroutine(movementCoroutine);
+        }
+        state = EnemyMovementState.Wait;
+        movementCoroutine = StartCoroutine(Wait(waitTime));
+    }
+
+    IEnumerator Wait(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        SetMovementState(EnemyMovementState.Wander);
+    }
+
     public void SetMovementState(EnemyMovementState newState) {
+        if (core.health.isDead) {
+            return;
+        }
         switch (newState) {
             case EnemyMovementState.Wander:
                 if (state != EnemyMovementState.Wander) {
@@ -129,9 +169,11 @@ public class EnemyMovement : EnemyScript
         // pick a new spot to wander to by raycasting down from a random point in the wander zone
         while(true) {
 
-            // wait for a random amount of time before wandering
-            yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
+            
 
+            while(core.knockback.isBeingKnockedBack) {
+                yield return new WaitForFixedUpdate();
+            }
 
             bool searchingForNewWanderPoint = true;
             do
@@ -157,11 +199,16 @@ public class EnemyMovement : EnemyScript
             } while ( searchingForNewWanderPoint );
             // Debug.Log("Wandering to " + navAgent.destination);
             
+            // wait for a random amount of time before wandering
+            yield return new WaitForSeconds(Random.Range(wanderNewLocationDelayMin, wanderNewLocationDelayMax));
         }
     }
 
     IEnumerator PersuePlayer() {
         while (true) {
+            while(core.knockback.isBeingKnockedBack) {
+                yield return new WaitForFixedUpdate();
+            }
             navAgent.SetDestination(core.player.position);
             yield return new WaitForSeconds( persuitDelay);
         }
@@ -170,6 +217,9 @@ public class EnemyMovement : EnemyScript
     IEnumerator FleePlayer() {
         float timeLastSeenPlayer = Time.time;
         while (true) {
+            while(core.knockback.isBeingKnockedBack) {
+                yield return new WaitForFixedUpdate();
+            }
             // if close to player, flee in the opposite direction
             float dist = Vector3.Distance(core.rb.transform.position, core.player.position);
 
