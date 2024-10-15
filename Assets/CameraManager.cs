@@ -13,7 +13,7 @@ public class CameraManager : MonoBehaviour
         _offset = transform.position - target.position;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         //throw new NotImplementedException();
         Vector3 target_position = target.position + _offset;
