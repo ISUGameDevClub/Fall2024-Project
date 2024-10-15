@@ -107,6 +107,14 @@ PrefabInstance:
       propertyPath: stateWhenPlayerSeen
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: changeStateAfterAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: changeStateWhenEnemyHit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7802182621222857545, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.6777

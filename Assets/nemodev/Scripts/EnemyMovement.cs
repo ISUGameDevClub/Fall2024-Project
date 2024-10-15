@@ -139,10 +139,6 @@ public class EnemyMovement : EnemyScript
 
     private void OnPlayerDetected() {
 
-        if (state == EnemyMovementState.Bunker && resetTimerWhenHit) {
-            SetMovementState(EnemyMovementState.Persuit);
-        }
-
         if (changeStateWhenPlayerSeen)
             SetMovementState(stateWhenPlayerSeen);
 
@@ -152,6 +148,14 @@ public class EnemyMovement : EnemyScript
     private void OnPlayerLost() {
         if ( state == EnemyMovementState.Persuit) {
             SetWait(timeUntilWanderAfterPlayerLost);
+        }
+        if ( state == EnemyMovementState.Flee) {
+            SetWait(timeUntilWanderAfterPlayerLost);
+        }
+
+
+        if (bunkerExitCondition == BunkerExitCondition.PlayerLost && state == EnemyMovementState.Bunker) {
+            SetMovementState(stateAfterBunker);
         }
     }
 

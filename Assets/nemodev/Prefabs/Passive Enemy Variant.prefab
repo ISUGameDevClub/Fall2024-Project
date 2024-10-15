@@ -61,6 +61,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: changeStateWhenEnemyHit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: changeStateWhenPlayerSeen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
       propertyPath: <stateWhenEnemyHit>k__BackingField
       value: 2
       objectReference: {fileID: 0}
