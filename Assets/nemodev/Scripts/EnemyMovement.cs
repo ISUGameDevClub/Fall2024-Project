@@ -76,6 +76,7 @@ public class EnemyMovement : EnemyScript
     [SerializeField] EnemyMovementState stateWhenPlayerSeen = EnemyMovementState.Wander;
     [SerializeField] bool changeStateWhenEnemyHit = false;
     [SerializeField] bool changeStateWhenEnemyHitRequiresDamage = false;
+    [SerializeField] float changeStateWhenEnemyHitHealthRaio = 1f;
     [field: SerializeField] public EnemyMovementState stateWhenEnemyHit {get; private set;} = EnemyMovementState.Persuit;
 
     [SerializeField] bool changeStateAfterAttack = false;
@@ -113,13 +114,13 @@ public class EnemyMovement : EnemyScript
     private void OnAttack(bool connect) {
         if (changeStateAfterAttack) {
             if (!changeStateAfterAttackRequiresMeleeConnect || connect) {
-                SetMovementState(stateAfterBunker);
+                SetMovementState(stateAfterAttack);
             }
         }
     }
 
     private void OnEnemyHit(float damage) {
-        if (changeStateWhenEnemyHit)
+        if (changeStateWhenEnemyHit && core.health.health/core.health.maxHealth <= changeStateWhenEnemyHitHealthRaio)
             if ((changeStateWhenEnemyHitRequiresDamage && damage > 0) || !changeStateWhenEnemyHitRequiresDamage) {
                 SetMovementState(stateWhenEnemyHit);
             }

@@ -31,7 +31,7 @@ public class EnemyPooper : EnemyScript
     IEnumerator PoopRoutine() {
         while (true) {
             GameObject newObject = Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
-            newObject.transform.parent = transform;
+            // newObject.transform.parent = transform;
             yield return new WaitForSeconds(spawnRate);
         }
     }
