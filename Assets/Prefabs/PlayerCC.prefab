@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8503077835810246719}
   - component: {fileID: 6965157475784395287}
   - component: {fileID: 4807563308174537562}
+  - component: {fileID: 1042043668700984545}
   m_Layer: 6
   m_Name: PlayerCC
   m_TagString: Player
@@ -150,6 +151,19 @@ MonoBehaviour:
   jumpHeight: 1
   rollLength: 1
   rollFreq: 1
+--- !u!114 &1042043668700984545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833328298802082415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5d70f6a6a02de40be266053c6772a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mHit: {fileID: 0}
 --- !u!1 &7807971313437462314
 GameObject:
   m_ObjectHideFlags: 0

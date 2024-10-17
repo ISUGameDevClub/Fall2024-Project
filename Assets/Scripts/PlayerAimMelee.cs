@@ -19,11 +19,12 @@ public class PlayerAimMelee : MonoBehaviour
     {
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
         Plane plane = new Plane(Vector3.up, transform.position);
+        Vector3 mousePos = new Vector3(0,0,0);
         float hitDist;
 
         if (plane.Raycast(ray, out hitDist))
         {
-            Vector3 mousePos = ray.GetPoint(hitDist);
+            mousePos = ray.GetPoint(hitDist);
             transform.LookAt(mousePos);
         }
 
@@ -34,7 +35,7 @@ public class PlayerAimMelee : MonoBehaviour
         Vector3 spawnPos = this.transform.position + relPos * 2;
 
         hitFreq += Time.deltaTime;
-        if (Input.GetMouseButtonDown(1) && hitFreq >= .5f)
+        if (Input.GetMouseButtonDown(1) && hitFreq >= .7f)
         {
             Instantiate(mHit, spawnPos, Quaternion.FromToRotation(transform.forward, spawnPos));
             hitFreq = 0;
