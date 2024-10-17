@@ -53,7 +53,8 @@ public class EnemySpawner : MonoBehaviour
             EnemyCore enemyCore = newEnemy.GetComponentInChildren<EnemyCore>();
             enemyCore.movement.SetWanderZone(spawnZonePointA, spawnZonePointB);
 
-            // Debug.Log("Enemy Spawned");
+            // make child
+            newEnemy.transform.parent = transform;
         }
     }
 

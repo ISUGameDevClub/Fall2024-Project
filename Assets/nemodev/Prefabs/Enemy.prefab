@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1588350796277029767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4511914235873988989}
+  - component: {fileID: 7431589137232523442}
+  m_Layer: 7
+  m_Name: Enemy Attack Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4511914235873988989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588350796277029767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8376659386139200824}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7431589137232523442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588350796277029767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97b44e0931d231eb83d3e00c039e4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackType: 0
+  attackRangeMin: 0
+  attackRangeMax: 5
+  attackCooldownMin: 1
+  attackCooldownMax: 2
+  attackDurration: 2
+  attackWindup: 0.1
+  meleeRange: 2
+  meleeDamage: 10
+  projectilePrefab: {fileID: 5790262235823681162, guid: 2fe400e4ec3ecd81588b3bc8a2572b80, type: 3}
+  projectileSpeed: 10
+  projectileAccuracy: 10
+  projectilesTooShoot: 1
+  timeBetweenProjectiles: 0.1
 --- !u!1 &3129906355149891572
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +72,7 @@ GameObject:
   - component: {fileID: 3426831857081805650}
   - component: {fileID: 6347618948024736738}
   - component: {fileID: 987319130486621083}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy Rb
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -35,6 +93,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7802182621222857545}
+  - {fileID: 4511914235873988989}
   m_Father: {fileID: 3268664182466908942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6752210028152007355
@@ -146,7 +205,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3129906355149891572}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -172,7 +231,7 @@ GameObject:
   - component: {fileID: 5062477841862693091}
   - component: {fileID: 6552441807411352316}
   - component: {fileID: 4430523169215657705}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +271,7 @@ MonoBehaviour:
   <movement>k__BackingField: {fileID: 5062477841862693091}
   <health>k__BackingField: {fileID: 6552441807411352316}
   <knockback>k__BackingField: {fileID: 4430523169215657705}
+  <attack>k__BackingField: {fileID: 7431589137232523442}
 --- !u!114 &5062477841862693091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,17 +289,29 @@ MonoBehaviour:
     m_Bits: 256
   wanderZonePointA: {fileID: 0}
   wanderZonePointB: {fileID: 0}
+  initialMovementState: 0
   wanderNewLocationDelayMin: 5
   wanderNewLocationDelayMax: 15
   persuitDelay: 0.2
   persuitSpeed: 8
+  persuitDistance: 0
   timeUntilWanderAfterPlayerLost: 5
   fleeSpeed: 5
-  fleeDistance: 25
+  fleeDistance: 45
   fleeDelay: 0.3
   fleeTimeUntilZoneReturn: 15
+  bunkerExitCondition: 0
+  bunkerExitTime: 5
+  resetTimerWhenHit: 1
+  stateAfterBunker: 0
+  changeStateWhenPlayerSeen: 1
   stateWhenPlayerSeen: 1
-  stateWhenEnemyHit: 1
+  changeStateWhenEnemyHit: 0
+  changeStateWhenEnemyHitRequiresDamage: 0
+  <stateWhenEnemyHit>k__BackingField: 1
+  changeStateAfterAttack: 0
+  changeStateAfterAttackRequiresMeleeConnect: 0
+  stateAfterAttack: 2
 --- !u!114 &6552441807411352316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  bunkerNegatesMelee: 0
+  bunkerNegatesRanged: 1
 --- !u!114 &4430523169215657705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +350,7 @@ GameObject:
   - component: {fileID: 7802182621222857545}
   - component: {fileID: 6243156717214883379}
   - component: {fileID: 4425976048054530435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
