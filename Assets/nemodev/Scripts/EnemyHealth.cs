@@ -24,7 +24,7 @@ public class EnemyHealth : EnemyScript
     }
 
     public void TakeDamage(float damage, AttackType type) {
-
+        if (isDead) return;
         if (core.movement.state == EnemyMovementState.Bunker) {
             if (type == AttackType.Melee && bunkerNegatesMelee) {
                 enemyHit?.Invoke(0f);
@@ -39,7 +39,7 @@ public class EnemyHealth : EnemyScript
         health -= damage;
         enemyHit?.Invoke(damage);
         if (health <= 0) {
-            core.rb.constraints = RigidbodyConstraints.None;
+            // core.rb.constraints = RigidbodyConstraints.None;
             
             enemyDeath.Invoke();
         }
