@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAim : MonoBehaviour
+public class PlayerAim1 : MonoBehaviour
 {
     private Camera mainCam;
     public GameObject bullet;
