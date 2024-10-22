@@ -23,6 +23,7 @@ public class Health : MonoBehaviour {
         curHealth = maxHealth;
         Debug.Log("You are starting with " + curHealth + " HP.");
         Debug.Log("Push the spacebar to kill yourself.");
+        healthBar = FindAnyObjectByType<HealthBar>();
         //m_healthFunction += DamagePlayer;
         //m_healthFunction += HealPlayer;
     }
