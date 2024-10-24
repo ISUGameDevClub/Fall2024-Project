@@ -18,8 +18,7 @@ public class Menu_handeler : MonoBehaviour
 
     public void decline()
     {
-        Debug.Log("DELETE!!!");
-        FindObjectOfType<Menu_creator>().SetMenuActiveFalse();
+        Time.timeScale = 1;
         Destroy(this.gameObject);
     }
 
