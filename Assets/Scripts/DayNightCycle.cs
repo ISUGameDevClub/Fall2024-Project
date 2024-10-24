@@ -5,19 +5,20 @@ using TMPro;
 
 public class DayNightCycle : MonoBehaviour
 {
-    private float tempSec = 0;
-    private float sec = 0;
-    private float min = 0;
-    private float hour = 0;
+    private float timePassed = 0;
     private string clock = "";
     private bool cycle = true;
-    private float speed = 86400;
     public int dayLengthInSec = 300;
-    public TMP_Text textTime;
+    public GameObject clockHand;
+    public GameObject sunObject;
+    private Quaternion sunStartRotation;
+    private Quaternion sunTargetRotation;
+    private Quaternion clockStartRotation;
+    private Quaternion clockTargetRotation;
     // Start is called before the first frame update
     void Start()
     {
-        speed = speed / dayLengthInSec;
+        resetDay();
     }
 
     // Update is called once per frame
@@ -25,21 +26,21 @@ public class DayNightCycle : MonoBehaviour
     {
         if (cycle)
         {
-            tempSec += Time.deltaTime;
-            if (tempSec >= 1)
+            timePassed += Time.deltaTime;
+            float t = timePassed / dayLengthInSec;
+            sunObject.transform.rotation = Quaternion.Lerp(sunStartRotation, sunTargetRotation, t);
+            clockHand.transform.rotation = Quaternion.Lerp(clockStartRotation, clockTargetRotation, t);
+            if (t >= 1.0f)
             {
-                transform.Rotate(.00416667f * speed, 0, 0);
-                sec += speed;
-                tempSec = 0;
+                cycle = false; // Stop rotating
             }
-            if (sec >= 60) { min += 1; sec = sec - 60f; }
-            if (min >= 60) { hour += 1; min = min - 60f; }
-            if (hour >= 12) { hour = 0; }
-
-            if (hour < 10) { clock = "Time: 0" + hour + ":"; }
-            else { clock = "Time: " + hour + ":"; }
-            if (min < 10) { textTime.text = clock + "0" + min; }
-            else { textTime.text = clock + min; }
         }
+    }
+
+    public void resetDay() {
+        sunStartRotation = sunObject.transform.rotation;
+        sunTargetRotation = sunStartRotation * Quaternion.Euler(0, 180, 0);
+        clockStartRotation = clockHand.transform.rotation;
+        clockTargetRotation = clockStartRotation * Quaternion.Euler(0, 0, 180);
     }
 }
