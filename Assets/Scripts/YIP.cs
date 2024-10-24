@@ -37,6 +37,7 @@ public class YIP : MonoBehaviour
         if (fame - score < 0)
         {
             fame = 0;
+            // Run Function to send player to game over screen HERE.
         }
         else
         {
@@ -49,6 +50,7 @@ public class YIP : MonoBehaviour
     }
     public void SetFame(int score)
     {
+        // MT: Dont forget to add limits so we can set score over 500 or set it to 0
         fame = score;
     }
 }
