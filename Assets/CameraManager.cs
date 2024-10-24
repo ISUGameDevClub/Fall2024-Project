@@ -11,6 +11,7 @@ public class CameraManager : MonoBehaviour
     private void Awake()
     {
         _offset = transform.position - target.position;
+        _offset.x = 0f;
     }
 
     private void Update()
