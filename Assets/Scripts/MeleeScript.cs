@@ -18,7 +18,6 @@ public class MeleeScript : MonoBehaviour
         hitLength += Time.deltaTime;
         if (hitLength >= .1f)
         {
-            Debug.Log("Destroy");
             Destroy(this.gameObject);
         }
     }
