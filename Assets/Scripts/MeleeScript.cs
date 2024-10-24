@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeScript : MonoBehaviour
 {
     private float hitLength = 0;
-    public float damage;
+    public float damage = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class MeleeScript : MonoBehaviour
     void Update()
     {
         hitLength += Time.deltaTime;
-        if (hitLength >= .5f)
+        if (hitLength >= .1f)
         {
             Debug.Log("Destroy");
             Destroy(this.gameObject);
@@ -27,7 +27,7 @@ public class MeleeScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage, AttackType.Melee);
+            other.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage, AttackType.Melee);
         }
     }
 }

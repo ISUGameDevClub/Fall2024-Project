@@ -6,7 +6,7 @@ public class PlayerAimMelee : MonoBehaviour
 {
     private Camera mainCam;
     public GameObject mHit;
-    private float hitFreq = 0;
+    public float hitFreq = 0.7f;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +32,13 @@ public class PlayerAimMelee : MonoBehaviour
 
         relPos.Normalize();
 
-        Vector3 spawnPos = this.transform.position + relPos * 2;
+        Vector3 spawnPos = this.transform.position + relPos * 1.4f;
 
         hitFreq += Time.deltaTime;
         if (Input.GetMouseButtonDown(1) && hitFreq >= .7f)
         {
-            Instantiate(mHit, spawnPos, Quaternion.FromToRotation(transform.forward, spawnPos));
+            GameObject swingBox = Instantiate(mHit, spawnPos, Quaternion.FromToRotation(transform.forward, spawnPos));
+            swingBox.transform.SetParent(this.transform);
             hitFreq = 0;
         }
     }
