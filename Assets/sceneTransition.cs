@@ -14,14 +14,18 @@ public class sceneTransition : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //LoadNextLevel();
+            transition.SetTrigger("DeathFade");
+        }
+        if (Input.GetKeyDown(KeyCode.Tab)) {
             LoadNextLevel();
         }
-
     }
 
     public void LoadNextLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(LoadLevel(0));
     }
 
     IEnumerator LoadLevel(int levelIndex)
