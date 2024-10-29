@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 860fe9bd8768cf34ba941583951d2dcd
+guid: 8575cca4fdf35f74583797b452434b62
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - pauseMenuUI: {fileID: 8191721500798071483, guid: c06dd0dc4dd695849bf479ccac70f9b5, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
