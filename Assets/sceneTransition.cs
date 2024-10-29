@@ -15,17 +15,21 @@ public class sceneTransition : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //LoadNextLevel();
-            transition.SetTrigger("DeathFade");
+            PlayerDeathTransition();
         }
         if (Input.GetKeyDown(KeyCode.Tab)) {
-            LoadNextLevel();
+            LoadLevelIndex(0);
         }
     }
 
-    public void LoadNextLevel()
+    public void LoadLevelIndex(int levelIndex)
     {
         //StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-        StartCoroutine(LoadLevel(0));
+        StartCoroutine(LoadLevel(levelIndex));
+    }
+
+    public void PlayerDeathTransition() {
+        transition.SetTrigger("DeathFade");
     }
 
     IEnumerator LoadLevel(int levelIndex)
