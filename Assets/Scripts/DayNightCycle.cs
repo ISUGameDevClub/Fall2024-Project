@@ -43,4 +43,9 @@ public class DayNightCycle : MonoBehaviour
         clockStartRotation = clockHand.transform.rotation;
         clockTargetRotation = clockStartRotation * Quaternion.Euler(0, 0, 180);
     }
+    
+    public void addTimeToPassing(float wastedTime)
+    {
+        timePassed += wastedTime;
+    }
 }
