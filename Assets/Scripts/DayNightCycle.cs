@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class DayNightCycle : MonoBehaviour
 {
@@ -15,10 +16,11 @@ public class DayNightCycle : MonoBehaviour
     private Quaternion sunTargetRotation;
     private Quaternion clockStartRotation;
     private Quaternion clockTargetRotation;
+    public event Action OnDayFinish;
     // Start is called before the first frame update
     void Start()
     {
-        resetDay();
+        ResetDay();
     }
 
     // Update is called once per frame
@@ -33,11 +35,12 @@ public class DayNightCycle : MonoBehaviour
             if (t >= 1.0f)
             {
                 cycle = false; // Stop rotating
+                OnDayFinish?.Invoke();
             }
         }
     }
 
-    public void resetDay() {
+    public void ResetDay() {
         sunStartRotation = sunObject.transform.rotation;
         sunTargetRotation = sunStartRotation * Quaternion.Euler(0, 180, 0);
         clockStartRotation = clockHand.transform.rotation;
@@ -47,5 +50,11 @@ public class DayNightCycle : MonoBehaviour
     public void addTimeToPassing(float wastedTime)
     {
         timePassed += wastedTime;
+    }
+
+    public void StartDay() {
+        ResetDay();
+        cycle = true;
+        timePassed = 0;
     }
 }
