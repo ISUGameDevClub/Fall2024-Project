@@ -20,7 +20,7 @@ public class EnemyDrops : EnemyScript
             // MT: Get the items name string and put it in the add Item Function for Inventory
             int randommap = Random.Range(0, droppedItems.Length);
             // Import New Inventory system and use the add functions
-            InventoryManager.instance.AddItem(droppedItems[randommap]);
+            InventoryManager.instance.AddItem(droppedItems[0]);
         }
     }
     // Update is called once per frame

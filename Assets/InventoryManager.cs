@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
 
     void Awake() {
-        if (instance != null) {
+        if (instance == null) {
             instance = this;
         }
     }
@@ -24,7 +24,7 @@ public class InventoryManager : MonoBehaviour
                 inventory[i].quantity += quantity;
                 return;
         }
-        inventory.Append(itemObj);
+        inventory.Add(itemObj);
     }
 
     // MT: Same for this one to have a arg.
