@@ -26,11 +26,27 @@ public class EnemyAnimation : EnemyScript
         core.attack.attackStart += OnAttackStart;
     }
 
+ 
     private void FixedUpdate() {
+        if (core.movement.navAgent == null)
+            return;
         if (hasSpeedParameter)
             animator.SetFloat("speed", core.movement.navAgent.velocity.magnitude);  
         // Debug.Log(core.movement.navAgent.velocity.magnitude);
-    }
+
+        if (core.movement.state == EnemyMovementState.Persuit)
+            if (core.rb.transform.position.x > core.player.transform.position.x)
+                transform.localScale = new Vector3(-1, 1, 1);
+            if (core.rb.transform.position.x < core.player.transform.position.x)
+                transform.localScale = new Vector3(1, 1, 1);
+        else
+            if (core.movement.navAgent.velocity.x > 0.1f)
+                transform.localScale = new Vector3(1, 1, 1);
+            else if (core.movement.navAgent.velocity.x  < -0.1f)
+                transform.localScale = new Vector3(-1, 1, 1);
+
+
+    }   
 
     void OnAttackStart()
     {
