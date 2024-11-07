@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDrops : EnemyScript
 {
     // MT: replace with the scriptable object of the items in here.
-    public GameObject[] droppedItems;
+    public Item[] droppedItems;
     public float dropChances = .5f;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class EnemyDrops : EnemyScript
             // MT: Get the items name string and put it in the add Item Function for Inventory
             int randommap = Random.Range(0, droppedItems.Length);
             // Import New Inventory system and use the add functions
-            Instantiate(droppedItems[randommap], transform.position, Quaternion.identity);//Will be changed to inventory
+            InventoryManager.instance.AddItem(droppedItems[randommap]);
         }
     }
     // Update is called once per frame
