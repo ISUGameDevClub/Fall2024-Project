@@ -8,10 +8,15 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
 {
     public TabGroup tabGroup;
     public Image background;//background image for each tab
+    public GameObject[] uiDisable;
+    public GameObject[] uiEnable;
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
        tabGroup.OnTabSelected(this);
+        TurnOffUi();
+        TurnOnUi();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -30,6 +35,28 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
     {
         background = GetComponent<Image>();
         tabGroup.subscribe(this);
+    }
+
+    void TurnOffUi()
+    {
+        foreach (GameObject uiObject in uiDisable) 
+        { 
+            if (uiObject != null)
+            {
+                uiObject.SetActive(false);
+            }
+        }
+    }
+
+    void TurnOnUi()
+    {
+        foreach (GameObject uiObject in uiEnable)
+        {
+            if (uiObject != null)
+            {
+                uiObject.SetActive(true);
+            }
+        }
     }
 
     // Update is called once per frame
