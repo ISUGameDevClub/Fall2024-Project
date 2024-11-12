@@ -54,6 +54,7 @@ MonoBehaviour:
   meleeRange: 2
   meleeDamage: 10
   projectilePrefab: {fileID: 5790262235823681162, guid: 2fe400e4ec3ecd81588b3bc8a2572b80, type: 3}
+  projectileLaunchShift: 0.5
   projectileSpeed: 10
   projectileAccuracy: 10
   projectilesTooShoot: 1
@@ -191,6 +192,7 @@ GameObject:
   - component: {fileID: 3426831857081805650}
   - component: {fileID: 6347618948024736738}
   - component: {fileID: 987319130486621083}
+  - component: {fileID: 4879486388534122694}
   m_Layer: 7
   m_Name: Enemy Rb
   m_TagString: Enemy
@@ -338,6 +340,25 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4879486388534122694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129906355149891572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a9c5315e562d341af4c0a114a55f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItems:
+  - item: {fileID: 5790262235823681162, guid: 866bc0a1b7fb4494cb7a33fbd9427045, type: 3}
+    amount: 1
+    dropChance: 1
+  - item: {fileID: 5790262235823681162, guid: 866bc0a1b7fb4494cb7a33fbd9427045, type: 3}
+    amount: 2
+    dropChance: 0.5
 --- !u!1 &4290817894688885905
 GameObject:
   m_ObjectHideFlags: 0
