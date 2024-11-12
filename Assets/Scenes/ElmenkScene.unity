@@ -235,6 +235,46 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1459150335947332670, guid: 17f40afa47654e983933ba4b8ca1da94, type: 3}
   m_PrefabInstance: {fileID: 1370016105}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &870607073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6485442023165889391, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
+  m_PrefabInstance: {fileID: 2939166411109475045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &870607075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870607073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a36b8a7932907c4baebee80f6f73ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transition: {fileID: 870607076}
+  transitionTime: 1
+--- !u!95 &870607076
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870607073}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d83bd2bac89df0b4ba987b0a3c73413d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1309521180
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +286,7 @@ GameObject:
   - component: {fileID: 1309521182}
   - component: {fileID: 1309521181}
   m_Layer: 0
-  m_Name: RespaewnManager
+  m_Name: RespawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,6 +304,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b07f5a283e51f449f75c4c448c6308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1682753029}
+  timeCycle: {fileID: 0}
+  curtainsCloser: {fileID: 870607075}
   wakeLocation: {x: 0, y: 0, z: 0}
   timeSpentDead: 9
 --- !u!4 &1309521182
@@ -664,7 +707,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6485442023165889391, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 870607075}
+    - targetCorrespondingSourceObject: {fileID: 6485442023165889391, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 870607076}
   m_SourcePrefab: {fileID: 100100000, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
