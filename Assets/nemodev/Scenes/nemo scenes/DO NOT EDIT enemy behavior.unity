@@ -598,6 +598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 68459543}
   damp: 0.1
+  lockYAxis: 0
 --- !u!1 &553305854
 GameObject:
   m_ObjectHideFlags: 0
