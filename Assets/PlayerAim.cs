@@ -67,7 +67,7 @@ public class PlayerAim : MonoBehaviour
             if (rb != null)
             {
                 
-                rb.velocity = bulletTransform.forward * 20f; 
+                rb.velocity = bulletTransform.forward * 60f; 
             }
         }
     }
