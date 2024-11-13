@@ -19,12 +19,19 @@ public class TabGroup : MonoBehaviour
         tabButtons.Add(button);
     }
 
+    void OnEnable() {
+        selectedTab = tabButtons[0];
+        selectedTab.TurnOffUi();
+        selectedTab.TurnOnUi();
+        ResetTabs();
+    }
+
     public void OnTabEnter(TabButton button)
     {
         ResetTabs();
         if (selectedTab == null || button != selectedTab)
         {
-            button.background.sprite = tabHover;
+            //button.background.sprite = tabHover;
         }
     }
 
@@ -38,7 +45,7 @@ public class TabGroup : MonoBehaviour
     {
         selectedTab = button;
         ResetTabs();
-        button.background.sprite = tabActive;
+        //button.background.sprite = tabActive;
 
     }
 
@@ -47,7 +54,7 @@ public class TabGroup : MonoBehaviour
         foreach (TabButton button in tabButtons)
         {
             if(selectedTab != button && button == selectedTab) { continue; }
-            button.background.sprite = tabIdle;
+            //button.background.sprite = tabIdle;
         }
     }
 

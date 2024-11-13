@@ -37,7 +37,7 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
         tabGroup.subscribe(this);
     }
 
-    void TurnOffUi()
+    public void TurnOffUi()
     {
         foreach (GameObject uiObject in uiDisable) 
         { 
@@ -48,7 +48,7 @@ public class TabButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandl
         }
     }
 
-    void TurnOnUi()
+    public void TurnOnUi()
     {
         foreach (GameObject uiObject in uiEnable)
         {
