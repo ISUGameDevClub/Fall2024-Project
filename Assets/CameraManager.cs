@@ -14,6 +14,7 @@ public class CameraManager : MonoBehaviour
     {
         _offset = transform.position - target.position;
         axisY = transform.position.y;
+        _offset.x = 0f;
     }
 
     private void Update()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using System;
 
 public class Health : MonoBehaviour {
     public int curHealth = 0;
@@ -10,6 +11,8 @@ public class Health : MonoBehaviour {
     public int minHealth = 0;
     public HealthBar healthBar;
     public static Health healthInstance;
+
+    public Action playerDeath;
 
     //private UnityAction m_healthFunction;
 
@@ -53,6 +56,7 @@ public class Health : MonoBehaviour {
         Debug.Log("You are now at " + curHealth + " health.");
         if(curHealth<1) {
             Debug.Log("You dead. Thanks for playing.");
+            playerDeath?.Invoke();
         }
     }
 

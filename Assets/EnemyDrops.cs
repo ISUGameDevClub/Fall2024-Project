@@ -7,7 +7,7 @@ using UnityEngine;
 public struct DropItemInfo
 {
 
-    public GameObject item;
+    public Item item;
     public int amount;
     public float dropChance;
 }
@@ -32,7 +32,7 @@ public class EnemyDrops : EnemyScript
             {
                 for (int i = 0; i < item.amount; i++)
                 {
-                    Instantiate(item.item, transform.position, Quaternion.identity);
+                    InventoryManager.instance.AddItem(item.item);
                 }
             }
         }

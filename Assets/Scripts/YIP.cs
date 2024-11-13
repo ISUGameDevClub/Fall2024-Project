@@ -8,6 +8,16 @@ using UnityEngine.SocialPlatforms.Impl;
 public class YIP : MonoBehaviour
 {
     public int fame = 0;
+    public static YIP instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
