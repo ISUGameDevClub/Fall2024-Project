@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCC
       objectReference: {fileID: 0}
+    - target: {fileID: 2326983407785311036, guid: 17f40afa47654e983933ba4b8ca1da94, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
