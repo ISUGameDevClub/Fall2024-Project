@@ -9,7 +9,7 @@ public class MeleeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        damage = UpgradeScript.instance.meleeDamage;
     }
 
     // Update is called once per frame
@@ -28,5 +28,9 @@ public class MeleeScript : MonoBehaviour
         {
             other.gameObject.GetComponentInParent<EnemyHealth>().TakeDamage(damage, AttackType.Melee);
         }
+    }
+    void OnUpgradeUpdate()
+    {
+
     }
 }

@@ -11,6 +11,7 @@ public class PlayerAimMelee : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+        hitFreq = UpgradeScript.instance.meleeSpeed;
     }
 
 
@@ -41,6 +42,10 @@ public class PlayerAimMelee : MonoBehaviour
             swingBox.transform.SetParent(this.transform);
             hitFreq = 0;
         }
+    }
+    void OnUpgradeUpdate()
+    {
+
     }
 
 }
