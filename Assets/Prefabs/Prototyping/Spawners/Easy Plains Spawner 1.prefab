@@ -50,13 +50,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   enemySpawns:
-  - enemyPrefab: {fileID: 4290817894688885905, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+  - enemyPrefab: {fileID: 2355475225081046398, guid: 019d1d0c82321524ebf73d76c1656cc8, type: 3}
     spawnWeight: 2
-  - enemyPrefab: {fileID: 955494847508281991, guid: 64c338c29a2c3c5c2a64a86e2ac42c3b, type: 3}
+  - enemyPrefab: {fileID: 1162903753558309147, guid: 312c80af6f5395f4e8d4064cbf6ce940, type: 3}
     spawnWeight: 2
-  - enemyPrefab: {fileID: 4733983562364201101, guid: 8d2f5deb0053d30c4b03d0a3b903b1aa, type: 3}
+  - enemyPrefab: {fileID: 6528210711033508908, guid: 36dda0b19390a334090368fbdab941cc, type: 3}
     spawnWeight: 2
-  - enemyPrefab: {fileID: 4603622828727887365, guid: 9bdbb10551421928493f0061ae56fc16, type: 3}
+  - enemyPrefab: {fileID: 3384818356118601401, guid: e3cc3683cc34f384c8ed25c94ebc5441, type: 3}
     spawnWeight: 4
   minEnemiesToSpawn: 2
   maxEnemiesToSpawn: 5
