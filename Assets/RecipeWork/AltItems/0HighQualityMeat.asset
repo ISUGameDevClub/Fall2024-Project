@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrayPos: 0
   itemName: High Quality Meat
-  quantity: 1
+  quantity: 2
   icon: {fileID: 0}
