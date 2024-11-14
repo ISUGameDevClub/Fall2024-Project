@@ -9,11 +9,12 @@ public class star : MonoBehaviour
     float scaleVal;
     [SerializeField] int starNum;
     public GameObject thisStar;
+    float scale_increment = .25f / 100;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -21,10 +22,10 @@ public class star : MonoBehaviour
     {
         fame = YIP.instance.GetFame();
         if ((fame > (starNum * 100 - 100)) && (fame < (starNum * 100))){
-            scaleVal = (.25f /((100-fame)%100));
+            scaleVal = (scale_increment * (fame % 100));
             thisStar.transform.localScale = new Vector3(scaleVal, scaleVal, 1.0f);
         }
-        else if (fame <= (starNum * 100))
+        else if (fame >= (starNum * 100))
         {
             thisStar.transform.localScale = new Vector3(.25f, .25f, 1.0f);
         }
