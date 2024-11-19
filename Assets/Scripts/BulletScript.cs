@@ -10,7 +10,7 @@ public class BulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        damage = UpgradeScript.instance.bulletDamage;
     }
 
     // Update is called once per frame
@@ -32,5 +32,9 @@ public class BulletScript : MonoBehaviour
         } else {
             Destroy(this.gameObject);
         }
+    }
+    void OnUpgradeUpdate()
+    {
+
     }
 }
