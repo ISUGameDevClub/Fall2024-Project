@@ -859,6 +859,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeItem (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5314226769000662474, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: m_text
+      value: Melee Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834425527209507477, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: selectedUpgrade
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -960,6 +968,10 @@ PrefabInstance:
     - target: {fileID: 1315329740443570216, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
       propertyPath: m_Name
       value: UpgradeItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314226769000662474, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: m_text
+      value: Health
       objectReference: {fileID: 0}
     - target: {fileID: 5834425527209507477, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
       propertyPath: selectedUpgrade
@@ -1067,6 +1079,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeItem (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5314226769000662474, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: m_text
+      value: Ammo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834425527209507477, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: selectedUpgrade
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1168,6 +1188,14 @@ PrefabInstance:
     - target: {fileID: 1315329740443570216, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
       propertyPath: m_Name
       value: UpgradeItem (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314226769000662474, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: m_text
+      value: Bullet Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834425527209507477, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: selectedUpgrade
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1576,6 +1604,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeItem (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5314226769000662474, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: m_text
+      value: Reload Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834425527209507477, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: selectedUpgrade
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1677,6 +1713,14 @@ PrefabInstance:
     - target: {fileID: 1315329740443570216, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
       propertyPath: m_Name
       value: UpgradeItem (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314226769000662474, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: m_text
+      value: Melee Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834425527209507477, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: selectedUpgrade
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
