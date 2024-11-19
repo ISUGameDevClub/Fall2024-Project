@@ -36,6 +36,14 @@ public class UpgradeScript : MonoBehaviour
             Debug.LogError("Upgrade Get Error: No upgrades for a Float Value. Array is empty");
             return 0;
         }
+        public bool UpgradeItem() {
+            if (upgradeCost.Length >= (upgradeIndex + 1) && Currency.instance.CanDeductCurrency(upgradeCost[upgradeIndex + 1])) {
+                Currency.instance.RemoveCurrency(upgradeCost[upgradeIndex + 1]);
+                upgradeIndex++;
+                return true;
+            }
+            return false;
+        }
     }
     
     //health, pistolDamage,ammoLimit,reloadSpeed, meleeSpeed, meleeDamage;
