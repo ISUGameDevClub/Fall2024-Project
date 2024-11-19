@@ -19,8 +19,8 @@ public class PlayerAim1 : MonoBehaviour
     {
         mainCam = Camera.main;
         UpgradeScript.instance.onUpgradeUpdate += OnUpgradeUpdate;
-        bulletMax = UpgradeScript.instance.ammoLimit;
-        reloadTimer = UpgradeScript.instance.reloadSpeed;
+        bulletMax = UpgradeScript.instance.ammoLimit.GetCurrentIntVal();
+        reloadTimer = UpgradeScript.instance.reloadSpeed.GetCurrentFloatVal();
     }
 
 

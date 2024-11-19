@@ -6,11 +6,11 @@ public class BulletScript : MonoBehaviour
 {
     private float hitLength = 0;
 
-    public float damage = 3;
+    public int damage = 3;
     // Start is called before the first frame update
     void Start()
     {
-        damage = UpgradeScript.instance.bulletDamage;
+        damage = UpgradeScript.instance.bulletDamage.GetCurrentIntVal();
     }
 
     // Update is called once per frame

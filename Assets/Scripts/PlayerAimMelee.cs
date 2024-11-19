@@ -11,7 +11,7 @@ public class PlayerAimMelee : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
-        hitFreq = UpgradeScript.instance.meleeSpeed;
+        hitFreq = UpgradeScript.instance.meleeSpeed.GetCurrentFloatVal();
     }
 
 

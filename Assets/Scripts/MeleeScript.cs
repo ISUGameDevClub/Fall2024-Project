@@ -9,7 +9,7 @@ public class MeleeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        damage = UpgradeScript.instance.meleeDamage;
+        damage = UpgradeScript.instance.meleeDamage.GetCurrentIntVal();
     }
 
     // Update is called once per frame

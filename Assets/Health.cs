@@ -25,7 +25,7 @@ public class Health : MonoBehaviour {
     void Start() {
         curHealth = maxHealth;
         healthBar = FindAnyObjectByType<HealthBar>();
-        maxHealth = UpgradeScript.instance.maxHealth;
+        maxHealth = UpgradeScript.instance.maxHealth.GetCurrentIntVal();
     }
     public void DamagePlayer(int damage) {
         curHealth -= damage;

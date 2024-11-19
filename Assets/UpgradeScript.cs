@@ -5,17 +5,40 @@ using UnityEngine;
 public class UpgradeScript : MonoBehaviour
 {
     //vars for public upgrades
-    public int maxHealth;
-    public float bulletDamage;
-    public int ammoLimit;
-    public float reloadSpeed;
-    public float meleeSpeed;
-    public float meleeDamage;
+    public UpgradePath maxHealth;
+    public UpgradePath bulletDamage;
+    public UpgradePath ammoLimit;
+    public UpgradePath reloadSpeed;
+    public UpgradePath meleeSpeed;
+    public UpgradePath meleeDamage;
+
+    [System.Serializable]  // Mark the class as serializable
+    public class UpgradePath
+    {
+        public string upgradeDisplayName;
+        public int[] upgradeCost = { 20, 20, 20, 20, 20, 20 };
+        public int[] upgradesInt = { };
+        public float[] upgradesFloat = { };
+        public Sprite icon;
+        private int upgradeIndex = 0;
+
+        public int GetCurrentIntVal() {
+            if (upgradesInt.Length != 0) {
+                return upgradesInt[upgradeIndex];
+            }
+            Debug.LogError("Upgrade Get Error: No upgrades for a Int Value. Array is empty");
+            return 0;
+        }
+        public float GetCurrentFloatVal() {
+            if (upgradesFloat.Length != 0) {
+                return upgradesFloat[upgradeIndex];
+            }
+            Debug.LogError("Upgrade Get Error: No upgrades for a Float Value. Array is empty");
+            return 0;
+        }
+    }
     
     //health, pistolDamage,ammoLimit,reloadSpeed, meleeSpeed, meleeDamage;
-    public int[] upgradeCost = { 20, 20, 20, 20, 20, 20 };
-
-    public float[] upgrades = { };
 
     public class upgradeClass
     {
