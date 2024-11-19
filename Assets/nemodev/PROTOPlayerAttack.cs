@@ -33,7 +33,7 @@ public class PROTOPlayerAttack : MonoBehaviour
             foreach (EnemyCore enemy in enemiesInTrigger) {
                 
                 // damage enemy
-                enemy.health.TakeDamage(5f);
+                enemy.health.TakeDamage(5f, AttackType.Melee);
 
                 // knockback enemy
                 Vector3 direction = enemy.rb.transform.position - transform.position;

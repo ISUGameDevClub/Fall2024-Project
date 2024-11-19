@@ -1,11 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
+
+[System.Serializable]
+public struct DropItemInfo
+{
+
+    public Item item;
+    public int amount;
+    public float dropChance;
+}
+
 
 public class EnemyDrops : EnemyScript
 {
-    public GameObject[] droppedItems;
-    public float dropChances = .5f;
+    // MT: replace with the scriptable object of the items in here.
+    public DropItemInfo[] droppedItems;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,16 +26,16 @@ public class EnemyDrops : EnemyScript
 
     void OnEnemyDeath()
     {
-        if(Random.value <= dropChances)
+        foreach (DropItemInfo item in droppedItems)
         {
-            int randommap = Random.Range(0, droppedItems.Length);
-
-            Instantiate(droppedItems[randommap], transform.position, Quaternion.identity);//Will be changed to inventory
+            if (Random.value <= item.dropChance)
+            {
+                for (int i = 0; i < item.amount; i++)
+                {
+                    InventoryManager.instance.AddItem(item.item);
+                }
+            }
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

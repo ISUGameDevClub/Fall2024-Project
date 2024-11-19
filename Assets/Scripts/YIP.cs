@@ -8,6 +8,16 @@ using UnityEngine.SocialPlatforms.Impl;
 public class YIP : MonoBehaviour
 {
     public int fame = 0;
+    public static YIP instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +47,7 @@ public class YIP : MonoBehaviour
         if (fame - score < 0)
         {
             fame = 0;
+            // Run Function to send player to game over screen HERE.
         }
         else
         {
@@ -49,6 +60,7 @@ public class YIP : MonoBehaviour
     }
     public void SetFame(int score)
     {
+        // MT: Dont forget to add limits so we can set score over 500 or set it to 0
         fame = score;
     }
 }
