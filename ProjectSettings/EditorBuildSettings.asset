@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/nemodev/Scenes/Scene2.unity
     guid: 536dcbf9bf0fa8b47be3e51bb9b61653
+  - enabled: 1
+    path: Assets/Brandev/Test_Scene_BB.unity
+    guid: 15067713a68113a46a09ec470e934d07
+  - enabled: 1
+    path: Assets/Brandev/Restaurant test.unity
+    guid: 482f9522615afc145b632701dd69c10c
   m_configObjects: {}
