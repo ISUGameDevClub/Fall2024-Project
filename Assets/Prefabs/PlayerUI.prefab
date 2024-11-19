@@ -961,6 +961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeItem
       objectReference: {fileID: 0}
+    - target: {fileID: 5834425527209507477, guid: 17e7459843cb9545abfd2d2784913c66, type: 3}
+      propertyPath: selectedUpgrade
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

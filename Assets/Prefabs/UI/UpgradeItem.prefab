@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 90579604317374424}
   - component: {fileID: 628966634322833072}
   - component: {fileID: 5728056238847520241}
+  - component: {fileID: 5834425527209507477}
   m_Layer: 5
   m_Name: UpgradeItem
   m_TagString: Untagged
@@ -31,10 +32,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3602610580424884502}
-  - {fileID: 3960065877334180268}
-  - {fileID: 1165688072674766759}
   - {fileID: 4423027582822379033}
   - {fileID: 3934617030236554511}
+  - {fileID: 1165688072674766759}
+  - {fileID: 3960065877334180268}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -80,6 +81,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5834425527209507477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315329740443570216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6782f7b77be6a35a1b76247983ebdd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentValueObj: {fileID: 3590793750539751513}
+  nextValueObj: {fileID: 4358802040718406378}
+  upgradeButton: {fileID: 2169562068836881726}
+  selectedUpgrade: 0
 --- !u!1 &2169562068836881726
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +243,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3590793750539751513}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -235,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.9, y: 0.3}
+  m_AnchoredPosition: {x: 6.9000015, y: 0.3}
   m_SizeDelta: {x: 64.6567, y: 14.517}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6178051060421117839
@@ -534,7 +551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000
+  m_text: max
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
@@ -597,7 +614,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 6.498913, y: 0, z: 33.999847, w: -0.13975668}
+  m_margin: {x: 4.9566765, y: 0, z: 32.78708, w: -0.13975668}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

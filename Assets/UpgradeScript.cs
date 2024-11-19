@@ -11,6 +11,9 @@ public class UpgradeScript : MonoBehaviour
     public UpgradePath reloadSpeed;
     public UpgradePath meleeSpeed;
     public UpgradePath meleeDamage;
+    public delegate void UpgradeUpdate();
+    public event UpgradeUpdate onUpgradeUpdate;
+    public static UpgradeScript instance;
 
     [System.Serializable]  // Mark the class as serializable
     public class UpgradePath
@@ -20,7 +23,7 @@ public class UpgradeScript : MonoBehaviour
         public int[] upgradesInt = { };
         public float[] upgradesFloat = { };
         public Sprite icon;
-        private int upgradeIndex = 0;
+        public int upgradeIndex = 0;
 
         public int GetCurrentIntVal() {
             if (upgradesInt.Length != 0) {
@@ -37,23 +40,16 @@ public class UpgradeScript : MonoBehaviour
             return 0;
         }
         public bool UpgradeItem() {
-            if (upgradeCost.Length >= (upgradeIndex + 1) && Currency.instance.CanDeductCurrency(upgradeCost[upgradeIndex + 1])) {
+            UpgradeScript.instance.UpdateUI();
+            if ((upgradeCost.Length - 1) > upgradeIndex && Currency.instance.CanDeductCurrency(upgradeCost[upgradeIndex])) {
                 Currency.instance.RemoveCurrency(upgradeCost[upgradeIndex + 1]);
                 upgradeIndex++;
+                instance.onUpgradeUpdate?.Invoke();
                 return true;
             }
             return false;
         }
     }
-    
-    //health, pistolDamage,ammoLimit,reloadSpeed, meleeSpeed, meleeDamage;
-
-    public class upgradeClass
-    {
-
-    }
-
-    public static UpgradeScript instance;
 
     private void Awake()
     {
@@ -67,13 +63,13 @@ public class UpgradeScript : MonoBehaviour
     {
     onUpgradeUpdate?.Invoke();
     }
-    void UpdateUI()
+    public void UpdateUI()
     {
-        
+        Debug.Log("Update UI");
+        onUpgradeUpdate?.Invoke();
     }
-    public delegate void UpgradeUpdate();
-
-    public event UpgradeUpdate onUpgradeUpdate;
+        
+    
 
     
 }
