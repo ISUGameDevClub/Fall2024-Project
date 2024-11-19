@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrayPos: 6
   itemName: Egg
-  quantity: 1
+  quantity: 2
   icon: {fileID: 0}

@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b3d5595dc0b25c49af248c5273bb921, type: 3}
-  m_Name: 0HighQualityMeat
+  m_Script: {fileID: 11500000, guid: 7ff0f95e7bda07043a062457844de994, type: 3}
+  m_Name: 3Sushi
   m_EditorClassIdentifier: 
-  arrayPos: 0
-  itemName: High Quality Meat
-  quantity: 2
+  recipeName: Sushi
+  ingredientIndices: 0300000004000000
+  ingredientNum: 0100000001000000
+  selectedNum: 0
   icon: {fileID: 0}
+  fame: 0
