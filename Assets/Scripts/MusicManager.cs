@@ -14,33 +14,33 @@ public class MusicManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            foreach (KeyValuePair<string, Sound> track in instance)
-            {
-                track.source = gameObject.AddComponent<AudioSource>();
+            // foreach (KeyValuePair<string, Sound> track in instance)
+            // {
+            //     track.source = gameObject.AddComponent<AudioSource>();
 
-                track.source.clip = track.clip;
-                track.source.volume = track.volume;
-                track.source.pitch = track.pitch;
-                track.source.loop = track.loop;
-            }
+            //     track.source.clip = track.clip;
+            //     track.source.volume = track.volume;
+            //     track.source.pitch = track.pitch;
+            //     track.source.loop = track.loop;
+            // }
         }
         else
         {
-            Destroy(GameObject);
+            //Destroy(GameObject);
         }
     }
 
     void playMusic(string trackName)
     {
-        track = tracks[trackName];
-        if (track)
-        {
-            track.source.Play();
-        }
-        else
-        {
-            Debug.LogWarning(name + " sound not found!");
-        }
+        // track = tracks[trackName];
+        // if (track)
+        // {
+        //     track.source.Play();
+        // }
+        // else
+        // {
+        //     Debug.LogWarning(name + " sound not found!");
+        // }
     }
 
 
