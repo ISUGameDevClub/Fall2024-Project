@@ -47,7 +47,7 @@ public class EnemyAttack : EnemyScript
     private void Start() {
         core.movement.behaviorStateChange += OnEnemyBehaviodStateChange;
         core.health.enemyDeath += OnEnemyDeath;
-        attackExecute += ProtoMeleePlayer;
+        // attackExecute += ProtoMeleePlayer;
     }
 
     private void OnEnemyDeath() {
@@ -100,6 +100,7 @@ public class EnemyAttack : EnemyScript
             attackExecute?.Invoke(true);
             Debug.Log("Player in range for melee attack");
             // melee attack code here
+            ProtoMeleePlayer(true);
         } else {
             attackExecute?.Invoke(false);
             Debug.Log("Player out of range for melee attack");
