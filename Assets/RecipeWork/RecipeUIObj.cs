@@ -20,6 +20,8 @@ public class RecipeUIObj : MonoBehaviour
         }
         recipeNameObj.text = recipeObject.recipeName;
         recipeIconObj.sprite = recipeObject.icon;
+        subButton.onClick.AddListener(Subtract);
+        addButton.onClick.AddListener(Add);
     }
 
     // Update is called once per frame
@@ -29,10 +31,33 @@ public class RecipeUIObj : MonoBehaviour
     }
 
     void Add() {
-
+        int recipeIndex = 0;
+        foreach (Item item in recipeObject.ingredients) {
+            if (!InventoryManager.instance.CheckCanCraft(item, recipeObject.ingredientNum[recipeIndex])) {
+                // Player Does not have enough to craft.
+                Debug.Log("Not Enoguh");
+                return;
+            }
+            recipeIndex++;
+        }
+        recipeIndex = 0;
+        foreach (Item item in recipeObject.ingredients) {
+            InventoryManager.instance.RemoveItem(item, recipeObject.ingredientNum[recipeIndex]);
+            recipeIndex++;
+        }
+        recipeObject.selectedNum++;
+        subButton.interactable = true;
+        craftCount.text = recipeObject.selectedNum.ToString();
     }
 
     void Subtract() {
-
+        int recipeIndex = 0;
+        foreach (Item item in recipeObject.ingredients) {
+            InventoryManager.instance.AddItem(item, recipeObject.ingredientNum[recipeIndex]);
+            recipeIndex++;
+        }
+        recipeObject.selectedNum--;
+        if (recipeObject.selectedNum <= 0) {subButton.interactable = false;}
+        craftCount.text = recipeObject.selectedNum.ToString();
     }
 }
