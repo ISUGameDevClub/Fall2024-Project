@@ -21,6 +21,8 @@ public class RestStartMenu : MonoBehaviour
 
     public void confirmation()
     {
+        Time.timeScale = 1;
+        gameObject.active = false;
         GameManager.instance.StartEndDayScene();
     }
 
