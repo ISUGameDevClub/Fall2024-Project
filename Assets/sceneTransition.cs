@@ -6,19 +6,17 @@ using UnityEngine.SceneManagement;
 public class sceneTransition : MonoBehaviour
 {
     public Animator transition;
+    public static sceneTransition instance;
 
     public float transitionTime = 1f;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (instance == null)
         {
-            //LoadNextLevel();
-            PlayerDeathTransition();
-        }
-        if (Input.GetKeyDown(KeyCode.Tab)) {
-            LoadLevelIndex(0);
+            instance = this;
+        } else {
+            Destroy(gameObject);
         }
     }
 

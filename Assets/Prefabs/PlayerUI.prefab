@@ -1973,7 +1973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784072519108522151, guid: 877eccc03653d8e2b98f305aa9eee9da, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1037909175200465925, guid: 877eccc03653d8e2b98f305aa9eee9da, type: 3}
       propertyPath: m_CellSize.y
@@ -2269,7 +2269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7659795470700414430, guid: 877eccc03653d8e2b98f305aa9eee9da, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7970070896349970667, guid: 877eccc03653d8e2b98f305aa9eee9da, type: 3}
       propertyPath: m_AnchorMax.y

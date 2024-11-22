@@ -18,6 +18,6 @@ public class MainMenu : MonoBehaviour
     }
     public void playGame()
     {
-        SceneManager.LoadScene(4);
+        sceneTransition.instance.LoadLevelIndex(2);
     }
 }

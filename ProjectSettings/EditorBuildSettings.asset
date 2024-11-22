@@ -6,18 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/FinalScenes/MainMenu.unity
     guid: fabfb9c106ca60544be5ba810e07c5e1
   - enabled: 1
-    path: Assets/nemodev/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/FinalScenes/Credits.unity
+    guid: 4c6abeb982c65e4008d40c4eaff820c7
   - enabled: 1
-    path: Assets/nemodev/Scenes/Scene2.unity
-    guid: 536dcbf9bf0fa8b47be3e51bb9b61653
+    path: Assets/Scenes/LevelDesignTeam/TestScenes/OverworldSectioning.unity
+    guid: 0a1126625377d4a409b198196168bfe6
   - enabled: 1
-    path: Assets/Brandev/Test_Scene_BB.unity
-    guid: 15067713a68113a46a09ec470e934d07
-  - enabled: 1
-    path: Assets/Brandev/Restaurant test.unity
-    guid: 482f9522615afc145b632701dd69c10c
+    path: Assets/Scenes/FinalScenes/Restaurant.unity
+    guid: a716eb5128b687da9a43e2549d3b6a78
   m_configObjects: {}
