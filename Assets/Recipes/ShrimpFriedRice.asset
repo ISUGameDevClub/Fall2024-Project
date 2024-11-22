@@ -16,6 +16,6 @@ MonoBehaviour:
   ingredients: []
   ingredientNum: 
   selectedNum: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 751c8de2a936e7e3ea90dabf48a6dbfc, type: 3}
   fame: 0
   moneyPayout: 0
