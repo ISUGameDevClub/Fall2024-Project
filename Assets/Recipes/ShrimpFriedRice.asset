@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: ShrimpFriedRice
   m_EditorClassIdentifier: 
   recipeName: Shrimp Fried Rice
-  ingredients: []
-  ingredientNum: 
+  ingredients:
+  - {fileID: 11400000, guid: 294820d6c75de84909107911a118f71e, type: 2}
+  - {fileID: 11400000, guid: fa87a0cb3ba8bca418bed473abf6fbaa, type: 2}
+  - {fileID: 11400000, guid: 1e866da721c034f72b84884378010485, type: 2}
+  ingredientNum: 010000000100000001000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: 751c8de2a936e7e3ea90dabf48a6dbfc, type: 3}
   fame: 0

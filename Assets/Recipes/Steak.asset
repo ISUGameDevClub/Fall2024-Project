@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Steak
   ingredients:
-  - {fileID: 11400000, guid: 6c1dd18c41d3d93188911e1e1c5bd295, type: 2}
-  ingredientNum: 05000000
+  - {fileID: 11400000, guid: 3c7a4301c92d42b63a71fd849a991410, type: 2}
+  ingredientNum: 01000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: c6958c44c58362ee5bd109b5b8005c7a, type: 3}
   fame: 0

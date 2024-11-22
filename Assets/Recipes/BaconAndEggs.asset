@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: BaconAndEggs
   m_EditorClassIdentifier: 
   recipeName: Bacon and Eggs
-  ingredients: []
-  ingredientNum: 
+  ingredients:
+  - {fileID: 11400000, guid: 102f5e9c38ff7ae6b9c70cd99c07dc03, type: 2}
+  - {fileID: 11400000, guid: 294820d6c75de84909107911a118f71e, type: 2}
+  ingredientNum: 0100000001000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: 5724c0bbf0a22dd0d92a66bca144a72e, type: 3}
   fame: 0

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: SilverDollars
   m_EditorClassIdentifier: 
   recipeName: Silver Dollars
-  ingredients: []
-  ingredientNum: 
+  ingredients:
+  - {fileID: 11400000, guid: d992a43d9d531eae19f4f7f226f47686, type: 2}
+  - {fileID: 11400000, guid: 294820d6c75de84909107911a118f71e, type: 2}
+  ingredientNum: 0100000001000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: d58d787248d082ae69b895973b7249d5, type: 3}
   fame: 0

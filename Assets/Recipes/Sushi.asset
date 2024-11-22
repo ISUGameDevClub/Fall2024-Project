@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Sushi
   m_EditorClassIdentifier: 
   recipeName: Sushi
-  ingredients: []
-  ingredientNum: 
+  ingredients:
+  - {fileID: 11400000, guid: fa87a0cb3ba8bca418bed473abf6fbaa, type: 2}
+  - {fileID: 11400000, guid: 1e866da721c034f72b84884378010485, type: 2}
+  ingredientNum: 0100000001000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: 0796a1a5c8fd0793f8383f4eb65355f8, type: 3}
   fame: 0

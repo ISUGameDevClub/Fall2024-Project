@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Burgers
   m_EditorClassIdentifier: 
   recipeName: Burger
-  ingredients: []
-  ingredientNum: 
+  ingredients:
+  - {fileID: 11400000, guid: 11ec72078b367f20c902a9872be8f80d, type: 2}
+  - {fileID: 11400000, guid: d992a43d9d531eae19f4f7f226f47686, type: 2}
+  ingredientNum: 0100000001000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: 771b847b408a98308be7a38244778a56, type: 3}
   fame: 0

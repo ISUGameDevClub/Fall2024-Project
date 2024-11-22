@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: BeefStirFry
   m_EditorClassIdentifier: 
   recipeName: Beef Stir Fry
-  ingredients: []
-  ingredientNum: 
+  ingredients:
+  - {fileID: 11400000, guid: 11ec72078b367f20c902a9872be8f80d, type: 2}
+  - {fileID: 11400000, guid: fa87a0cb3ba8bca418bed473abf6fbaa, type: 2}
+  - {fileID: 11400000, guid: d992a43d9d531eae19f4f7f226f47686, type: 2}
+  ingredientNum: 010000000100000001000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: acdacbb30ea72a7a3865e29586394496, type: 3}
   fame: 0

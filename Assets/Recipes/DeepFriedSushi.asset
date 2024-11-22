@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: DeepFriedSushi
   m_EditorClassIdentifier: 
   recipeName: Deep Fried Sushi
-  ingredients: []
-  ingredientNum: 
+  ingredients:
+  - {fileID: 11400000, guid: c4b831cb1283168179f5c2a05597e1a7, type: 2}
+  - {fileID: 11400000, guid: fa87a0cb3ba8bca418bed473abf6fbaa, type: 2}
+  - {fileID: 11400000, guid: 1e866da721c034f72b84884378010485, type: 2}
+  ingredientNum: 010000000100000001000000
   selectedNum: 0
   icon: {fileID: 21300000, guid: f81b99790f2ee19d59a882223cbcc140, type: 3}
   fame: 0
