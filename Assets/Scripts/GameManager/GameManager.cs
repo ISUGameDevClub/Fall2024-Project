@@ -10,6 +10,18 @@ public class GameManager : MonoBehaviour
 
     [field: SerializeField]
     public DayNightCycle dayNightSystem {get; private set;}
+    public EndDayStats dayStats = new EndDayStats();
+    public class EndDayStats {
+        public int moneyAccumulated = 0;
+        public int yipAccumulate = 0;
+        public int customersServed = 0;
+
+        public void clearStats() {
+            moneyAccumulated = 0;
+            yipAccumulate = 0;
+            customersServed = 0;
+        }
+    }
 
     // Player Stats
     public int customersServed;
@@ -82,5 +94,22 @@ public class GameManager : MonoBehaviour
             totalScore += rb.recipeObject.moneyPayout * rb.recipeObject.selectedNum;
         }
         return totalScore;
+    }
+
+    public int CalcuateMoneyCustomersServed(){
+        int totalScore = 0;
+        List<RecipeUIObj> allRecipes = GetRecipesSelected();
+        foreach (RecipeUIObj rb in allRecipes)
+        {
+            totalScore += rb.recipeObject.selectedNum;
+        }
+        return totalScore;
+    }
+
+    public void StartEndDayScene() {
+        dayStats.moneyAccumulated = CalcuateMoneyFromRecipes();
+        dayStats.yipAccumulate = CalcuateYipFromRecipes();
+        dayStats.customersServed = CalcuateMoneyCustomersServed();
+        sceneTransition.instance.LoadLevelIndex(3);
     }
 }
