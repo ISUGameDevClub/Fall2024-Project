@@ -43,6 +43,19 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public bool CheckCanCraft(Item itemObj, int quanitiy = 1) {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            // I would also suggest to have it return a bool of true or false indicating if
+            // you can take away the amount requested.
+            if (inventory[i].itemName.Equals(itemObj.itemName))
+                // Return When nothing is in this item.
+                if (inventory[i].quantity <= 0) {return false;}
+                if (inventory[i].quantity >= quanitiy) {return true;}
+        }
+        return false;
+    }
+
     public List<Item> GetAll()
     {
         return inventory;
