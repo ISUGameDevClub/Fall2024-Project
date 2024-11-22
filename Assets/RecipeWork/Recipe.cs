@@ -11,4 +11,5 @@ public class Recipe : ScriptableObject
     public int selectedNum;
     public Sprite icon;
     public int fame = 0;
+    public int moneyPayout = 0;
 }
