@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class RecipeUIObj : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class RecipeUIObj : MonoBehaviour
     [SerializeField] TMP_Text craftCount;
     [SerializeField] Button addButton;
     [SerializeField] Button subButton;
+    [SerializeField] Image[] ingredentIcons;
+    [SerializeField] TMP_Text[] ingredentCountText;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,7 @@ public class RecipeUIObj : MonoBehaviour
         recipeIconObj.sprite = recipeObject.icon;
         subButton.onClick.AddListener(Subtract);
         addButton.onClick.AddListener(Add);
+        LoadIngredentUI();
     }
 
     // Update is called once per frame
@@ -59,5 +63,21 @@ public class RecipeUIObj : MonoBehaviour
         recipeObject.selectedNum--;
         if (recipeObject.selectedNum <= 0) {subButton.interactable = false;}
         craftCount.text = recipeObject.selectedNum.ToString();
+    }
+
+    void LoadIngredentUI(){
+        foreach (Image ico in ingredentIcons) {
+            ico.enabled = false;
+        }
+        foreach (TMP_Text num in ingredentCountText) {
+            num.text = "";
+        }
+        int recipeIndex = 0;
+        foreach (Item item in recipeObject.ingredients) {
+            ingredentIcons[recipeIndex].enabled = true;
+            ingredentIcons[recipeIndex].sprite = item.icon;
+            ingredentCountText[recipeIndex].text = recipeObject.ingredientNum[recipeIndex].ToString();
+            recipeIndex++;
+        }
     }
 }
