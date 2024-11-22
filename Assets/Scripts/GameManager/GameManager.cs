@@ -15,8 +15,11 @@ public class GameManager : MonoBehaviour
     public int customersServed;
 
     void Awake() {
-        if (instance != null) {
+        if (instance == null) {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else {
+            Destroy(gameObject);
         }
         daysPast = 1;
     }
