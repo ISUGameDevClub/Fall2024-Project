@@ -80,7 +80,7 @@ public class UpgradeUIItem : MonoBehaviour
         UpgradeScript.UpgradePath currentUpgr = GetUpgradeInfo();
         if (currentUpgr.upgradesInt.Length != 0 && (currentUpgr.upgradesInt.Length - 1) > currentUpgr.upgradeIndex) {
             return currentUpgr.upgradesInt[currentUpgr.upgradeIndex + 1].ToString();
-        } else if (currentUpgr.upgradesFloat.Length != 0 && (currentUpgr.upgradesInt.Length - 1) <= currentUpgr.upgradeIndex) {
+        } else if (currentUpgr.upgradesFloat.Length != 0 && (currentUpgr.upgradesFloat.Length - 1) > currentUpgr.upgradeIndex) {
             return currentUpgr.upgradesFloat[currentUpgr.upgradeIndex + 1].ToString();
         }
         return "max";
@@ -88,7 +88,10 @@ public class UpgradeUIItem : MonoBehaviour
 
     private string GetPrice() {
         UpgradeScript.UpgradePath currentUpgr = GetUpgradeInfo();
-        if ((currentUpgr.upgradesInt.Length - 1) < currentUpgr.upgradeIndex + 1) {
+        if (currentUpgr.upgradesInt.Length != 0 && (currentUpgr.upgradesInt.Length - 1) < currentUpgr.upgradeIndex + 1) {
+            upgradeButton.GetComponent<Button>().interactable = false;
+            return "maxed";
+        } else if (currentUpgr.upgradesFloat.Length != 0 && (currentUpgr.upgradesFloat.Length - 1) < currentUpgr.upgradeIndex + 1) {
             upgradeButton.GetComponent<Button>().interactable = false;
             return "maxed";
         }
