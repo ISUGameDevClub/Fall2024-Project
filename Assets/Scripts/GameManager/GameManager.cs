@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int daysPast {get; private set;}
 
     [field: SerializeField]
-    public DayNightCycle dayNightSystem {get; private set;}
+    //public DayNightCycle dayNightSystem {get; private set;}
     public EndDayStats dayStats = new EndDayStats();
     public class EndDayStats {
         public int moneyAccumulated = 0;
@@ -34,6 +35,18 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         daysPast = 1;
+    }
+
+    void OnEnable()
+    {
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        // Unsubscribe when this object is disabled or destroyed
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     // private void OnEnable()
@@ -111,5 +124,9 @@ public class GameManager : MonoBehaviour
         dayStats.yipAccumulate = CalcuateYipFromRecipes();
         dayStats.customersServed = CalcuateMoneyCustomersServed();
         sceneTransition.instance.LoadLevelIndex(3);
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene Loaded: " + scene.name);
     }
 }

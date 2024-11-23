@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DayNightCycle : MonoBehaviour
 {
@@ -21,6 +22,18 @@ public class DayNightCycle : MonoBehaviour
     void Start()
     {
         ResetDay();
+    }
+
+    void OnEnable()
+    {
+        // Subscribe to the sceneLoaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        // Unsubscribe when this object is disabled or destroyed
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -56,5 +69,14 @@ public class DayNightCycle : MonoBehaviour
         ResetDay();
         cycle = true;
         timePassed = 0;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (!sunObject) {
+            cycle = false;
+        } else {
+            cycle = true;
+        }
     }
 }
