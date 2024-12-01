@@ -340,6 +340,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2493472081319309701, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
+      propertyPath: fame
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493472081319309701, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -359,6 +363,10 @@ PrefabInstance:
       propertyPath: sunObject
       value: 
       objectReference: {fileID: 85689097}
+    - target: {fileID: 7547262866896169305, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
+      propertyPath: dayLengthInSec
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8972933774875033814, guid: aa255cf5dd7aa3ff58cd0870f0ff2354, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.377153

@@ -11,6 +11,8 @@ public class DayNightCycle : MonoBehaviour
     private string clock = "";
     private bool cycle = true;
     public int dayLengthInSec = 300;
+    public float deductYipSeconds = 5;
+    private float lastYipDecay;
     public GameObject clockHand;
     public GameObject sunObject;
     private Quaternion sunStartRotation;
@@ -51,6 +53,15 @@ public class DayNightCycle : MonoBehaviour
                 OnDayFinish?.Invoke();
             }
         }
+        if (timePassed > dayLengthInSec && lastYipDecay > deductYipSeconds) {
+            YIP.instance.RemoveFame(20);
+            lastYipDecay = 0;
+            if (YIP.instance.GetFame() <= 0) {
+                sceneTransition.instance.LoadLevelIndex(4);
+                YIP.instance.SetFame(9999999); // Too Lazy
+            }
+        }
+        lastYipDecay += Time.deltaTime;
     }
 
     public void ResetDay() {
