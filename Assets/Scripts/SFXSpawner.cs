@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class SFXSpawner : MonoBehaviour
 {
+    [System.Serializable]
     class SoundObj {
         public SoundEffectAsset soundAsset;
         public string soundName;
     }
 
     private int soundCount;
+    public static SFXSpawner instance;
     [SerializeField] SoundObj[] soundArray;
     AudioSource audioSource;
+    [SerializeField] bool isGlobalInstance;
+
+    void Awake() {
+        if (instance == null && isGlobalInstance) {
+            instance = this;
+        }
+    }
 
     private void spawnSound(AudioClip soundClip)
     {

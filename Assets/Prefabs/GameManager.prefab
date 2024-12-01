@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6317360680606638300}
   - component: {fileID: 3586776349637411860}
   - component: {fileID: 5113411333755317875}
+  - component: {fileID: 6009815850047862176}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -155,5 +156,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b650c0bc815a10573a49a1e1adcf7a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <dayNightSystem>k__BackingField: {fileID: 0}
   customersServed: 0
+--- !u!114 &6009815850047862176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8720b76f60977ed884195c236212ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundArray:
+  - soundAsset: {fileID: 11400000, guid: a323bbc1812e7903ea6768fd693e60df, type: 2}
+    soundName: PlayerShoot
+  - soundAsset: {fileID: 11400000, guid: 70cab8d0f0f38a0d1979291fa5862d9f, type: 2}
+    soundName: PlayerReload
+  - soundAsset: {fileID: 11400000, guid: 618cc3d70d8619950b5488e9b4bb2332, type: 2}
+    soundName: PlayerOutOfAmmo
+  isGlobalInstance: 1

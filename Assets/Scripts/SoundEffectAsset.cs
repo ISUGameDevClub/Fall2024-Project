@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundEffectAsset : MonoBehaviour
+[CreateAssetMenu(fileName = "New SFX Asset", menuName = "Audio/SFX Asset Refrence")]
+public class SoundEffectAsset : ScriptableObject
 {
 public List<AudioClip> soundClips;
     public string soundName;
