@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 913363408051045734, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: xRotation
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 2720821575771803916, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
       propertyPath: m_IsActive
       value: 1
