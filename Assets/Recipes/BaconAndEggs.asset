@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff0f95e7bda07043a062457844de994, type: 3}
+  m_Name: BaconAndEggs
+  m_EditorClassIdentifier: 
+  recipeName: Bacon and Eggs
+  ingredients:
+  - {fileID: 11400000, guid: 102f5e9c38ff7ae6b9c70cd99c07dc03, type: 2}
+  - {fileID: 11400000, guid: 294820d6c75de84909107911a118f71e, type: 2}
+  ingredientNum: 0100000001000000
+  selectedNum: 0
+  icon: {fileID: 21300000, guid: 5724c0bbf0a22dd0d92a66bca144a72e, type: 3}
+  fame: 0
+  moneyPayout: 0

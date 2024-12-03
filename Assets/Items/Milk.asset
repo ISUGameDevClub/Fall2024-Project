@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da61f84cc8c82454faf106e09fd6e176, type: 3}
-  m_Name: TestItem
+  m_Name: Milk
   m_EditorClassIdentifier: 
-  itemName: dflsdfnkjlsdfjklsdfjklsdfjsdfdf
-  quantity: 234
-  icon: {fileID: 21300000, guid: d2825aa43e3829b5d8874cddb9d5accc, type: 3}
+  itemName: Milk
+  quantity: 0
+  icon: {fileID: 21300000, guid: 608b237055f5d12e084b565def2bc4b6, type: 3}

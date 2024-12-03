@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff0f95e7bda07043a062457844de994, type: 3}
+  m_Name: BeefStirFry
+  m_EditorClassIdentifier: 
+  recipeName: Beef Stir Fry
+  ingredients:
+  - {fileID: 11400000, guid: 11ec72078b367f20c902a9872be8f80d, type: 2}
+  - {fileID: 11400000, guid: fa87a0cb3ba8bca418bed473abf6fbaa, type: 2}
+  - {fileID: 11400000, guid: d992a43d9d531eae19f4f7f226f47686, type: 2}
+  ingredientNum: 010000000100000001000000
+  selectedNum: 0
+  icon: {fileID: 21300000, guid: acdacbb30ea72a7a3865e29586394496, type: 3}
+  fame: 0
+  moneyPayout: 0

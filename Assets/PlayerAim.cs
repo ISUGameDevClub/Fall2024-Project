@@ -40,6 +40,7 @@ public class PlayerAim : MonoBehaviour
             if (reloading >= reloadTimer)
             {
                 bulletCount++;
+                SFXSpawner.instance.playSoundByString("PlayerReload");
                 reloading = 0;
             }
         }
@@ -58,6 +59,9 @@ public class PlayerAim : MonoBehaviour
             canfire = false;
             Shoot();
             bulletCount -= 1;
+            SFXSpawner.instance.playSoundByString("PlayerShoot");
+        } else if (Input.GetMouseButtonDown(0) && canfire && bulletCount == 0) {
+            SFXSpawner.instance.playSoundByString("PlayerOutOfAmmo");
         }
 
         void Shoot()
