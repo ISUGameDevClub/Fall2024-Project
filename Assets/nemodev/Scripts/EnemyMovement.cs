@@ -134,6 +134,7 @@ public class EnemyMovement : EnemyScript
         if (movementCoroutine != null) {
             StopCoroutine(movementCoroutine);
         }
+        GameManager.FindAnyObjectByType<OverworldMusicManager>().Remove(this.gameObject);
         //disable nav agent
         navAgent.enabled = false;
     }
