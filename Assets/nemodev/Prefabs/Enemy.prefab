@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d82cc2215d2e3021b6e272588aef04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xRotation: -25
 --- !u!1 &3129906355149891572
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,6 +470,7 @@ MonoBehaviour:
   maxHealth: 10
   bunkerNegatesMelee: 0
   bunkerNegatesRanged: 1
+  seeHealth: 0
 --- !u!114 &4430523169215657705
 MonoBehaviour:
   m_ObjectHideFlags: 0
