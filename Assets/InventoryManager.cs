@@ -18,10 +18,10 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(Item itemObj, int quantity = 1)
     {
         //cycle through list and find item with matching name, then increase quantity
-        for (int i = 0; i < inventory.Count; i++)
+        foreach(Item item in inventory)
         {
-            if (inventory[i].itemName == itemObj.itemName) {
-                inventory[i].quantity += quantity;
+            if (item.itemName == itemObj.itemName) {
+                item.quantity += quantity;
                 return;
             }
         }

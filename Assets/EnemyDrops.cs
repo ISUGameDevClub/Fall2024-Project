@@ -32,7 +32,8 @@ public class EnemyDrops : EnemyScript
             {
                 for (int i = 0; i < item.amount; i++)
                 {
-                    InventoryManager.instance.AddItem(item.item);
+                    InventoryManager.instance.AddItem(item.item, item.amount);
+                    FindAnyObjectByType<PlayerNotificationManager>().SpawnPickupNotifi(item.item.icon, item.amount);
                 }
             }
         }
