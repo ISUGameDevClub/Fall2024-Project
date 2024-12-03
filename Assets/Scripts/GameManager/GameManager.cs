@@ -135,7 +135,11 @@ public class GameManager : MonoBehaviour
         YIP.instance.AddFame(dayStats.yipAccumulate);
         Currency.instance.AddCurrency(dayStats.moneyAccumulated);
         ResetRecipeCount();
-        sceneTransition.instance.LoadLevelIndex(3);
+        if (YIP.instance.GetFame() >= 500) {
+            sceneTransition.instance.LoadLevelIndex(4); // Load Victory Screen
+        } else {
+            sceneTransition.instance.LoadLevelIndex(3); // Load Resturant
+        }
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
