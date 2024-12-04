@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalScenes/Restaurant.unity
     guid: a716eb5128b687da9a43e2549d3b6a78
+  - enabled: 1
+    path: Assets/Scenes/FinalScenes/LostScreen.unity
+    guid: a6f2323ab364bc6598abdf066b469cf2
   m_configObjects: {}

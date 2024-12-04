@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad76bf9ec68a5d56bbe592ccb962f08f, type: 3}
   m_Name: GunReload
   m_EditorClassIdentifier: 
-  soundClips: []
+  soundClips:
+  - {fileID: 8300000, guid: 1dd68150c5fd492748232236b9db8f67, type: 3}
   soundName: 
   volume: 0
   loop: 0
