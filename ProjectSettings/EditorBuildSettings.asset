@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalScenes/Credits.unity
     guid: 4c6abeb982c65e4008d40c4eaff820c7
   - enabled: 1
-    path: Assets/Scenes/LevelDesignTeam/TestScenes/OverworldSectioning.unity
-    guid: 0a1126625377d4a409b198196168bfe6
+    path: Assets/Scenes/LevelDesignTeam/TestScenes/OverworldSectioning(Daniel).unity
+    guid: fc7baaf4a51317c46907a69e82f56301
   - enabled: 1
     path: Assets/Scenes/FinalScenes/Restaurant.unity
     guid: a716eb5128b687da9a43e2549d3b6a78
   - enabled: 1
     path: Assets/Scenes/FinalScenes/VictoryScreen.unity
     guid: 23ff3320c19610be0857495a09369f32
+  - enabled: 1
+    path: Assets/Scenes/FinalScenes/LostScreen.unity
+    guid: a6f2323ab364bc6598abdf066b469cf2
   m_configObjects: {}
