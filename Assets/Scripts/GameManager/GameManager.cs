@@ -119,11 +119,27 @@ public class GameManager : MonoBehaviour
         return totalScore;
     }
 
+    public void ResetRecipeCount(){ 
+        List<RecipeUIObj> allRecipes = GetRecipesSelected();
+        foreach (RecipeUIObj rb in allRecipes)
+        {
+            rb.recipeObject.selectedNum = 0;
+        }
+    }
+
     public void StartEndDayScene() {
+        dayStats.clearStats();
         dayStats.moneyAccumulated = CalcuateMoneyFromRecipes();
         dayStats.yipAccumulate = CalcuateYipFromRecipes();
         dayStats.customersServed = CalcuateMoneyCustomersServed();
-        sceneTransition.instance.LoadLevelIndex(3);
+        YIP.instance.AddFame(dayStats.yipAccumulate);
+        Currency.instance.AddCurrency(dayStats.moneyAccumulated);
+        ResetRecipeCount();
+        if (YIP.instance.GetFame() >= 500) {
+            sceneTransition.instance.LoadLevelIndex(4); // Load Victory Screen
+        } else {
+            sceneTransition.instance.LoadLevelIndex(3); // Load Resturant
+        }
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

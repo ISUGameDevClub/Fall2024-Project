@@ -134,6 +134,7 @@ public class EnemyMovement : EnemyScript
         if (movementCoroutine != null) {
             StopCoroutine(movementCoroutine);
         }
+        GameManager.FindAnyObjectByType<OverworldMusicManager>().Remove(this.gameObject);
         //disable nav agent
         navAgent.enabled = false;
     }
@@ -149,6 +150,7 @@ public class EnemyMovement : EnemyScript
     private void OnPlayerLost() {
         if ( state == EnemyMovementState.Persuit) {
             SetWait(timeUntilWanderAfterPlayerLost);
+            GameManager.FindAnyObjectByType<OverworldMusicManager>().Remove(this.gameObject);
         }
         if ( state == EnemyMovementState.Flee) {
             SetWait(timeUntilWanderAfterPlayerLost);
@@ -217,6 +219,7 @@ public class EnemyMovement : EnemyScript
             StopCoroutine(movementCoroutine);
         }
         state = EnemyMovementState.Persuit;
+        GameManager.FindAnyObjectByType<OverworldMusicManager>().Add(this.gameObject);
         behaviorStateChange?.Invoke(state);
         movementCoroutine = StartCoroutine(PersuePlayer());
         navAgent.speed = persuitSpeed;
