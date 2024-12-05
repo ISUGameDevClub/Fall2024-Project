@@ -57,7 +57,8 @@ public class DayNightCycle : MonoBehaviour
             YIP.instance.RemoveFame(20);
             lastYipDecay = 0;
             if (YIP.instance.GetFame() <= 0) {
-                sceneTransition.instance.LoadLevelIndex(4);
+                // Load Game Over
+                sceneTransition.instance.LoadLevelIndex(5);
                 YIP.instance.SetFame(9999999); // Too Lazy
             }
         }

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad76bf9ec68a5d56bbe592ccb962f08f, type: 3}
   m_Name: GunEmpty
   m_EditorClassIdentifier: 
-  soundClips: []
+  soundClips:
+  - {fileID: 8300000, guid: 609a93c840a5a7718a9640a5dee72097, type: 3}
   soundName: 
   volume: 0
   loop: 0
