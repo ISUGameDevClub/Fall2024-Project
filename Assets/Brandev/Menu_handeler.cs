@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu_handeler : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Menu_handeler : MonoBehaviour
     public void confirmation()
     {
         Debug.Log("Howdy! This is a test!");
+        SceneManager.LoadScene("Test_Scene_BB");
+
     }
 
     public void decline()

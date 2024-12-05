@@ -12,14 +12,19 @@ public class EnemyAnimation : EnemyScript
     bool hasHurtParameter = false;
     bool hasDeadParameter = false;
 
+    [SerializeField]
+    private float xRotation = -25f;
+
     void Start()
     {
         animator = GetComponent<Animator>();
 
-        hasSpeedParameter = HasParameter("speed"); // float
-        hasAttackParameter = HasParameter("attack"); // trigger
-        hasHurtParameter = HasParameter("hurt"); // trigger
-        hasDeadParameter = HasParameter("dead"); // bool
+        this.transform.eulerAngles = new Vector3(xRotation, transform.eulerAngles.y, transform.eulerAngles.z);
+
+        hasSpeedParameter = HasParameter("speed");
+        hasAttackParameter = HasParameter("attack");
+        hasHurtParameter = HasParameter("hurt");
+        hasDeadParameter = HasParameter("dead");
 
         core.health.enemyHit += OnHurt;
         core.health.enemyDeath += OnDeath;

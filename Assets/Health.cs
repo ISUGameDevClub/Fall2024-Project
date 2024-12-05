@@ -11,7 +11,7 @@ public class Health : MonoBehaviour {
     public int minHealth = 0;
     public HealthBar healthBar;
     public static Health healthInstance;
-
+    private Vector3 spawnLocation;
     public Action playerDeath;
 
     //private UnityAction m_healthFunction;
@@ -24,52 +24,36 @@ public class Health : MonoBehaviour {
 
     void Start() {
         curHealth = maxHealth;
-        Debug.Log("You are starting with " + curHealth + " HP.");
-        Debug.Log("Push the spacebar to kill yourself.");
         healthBar = FindAnyObjectByType<HealthBar>();
-        //m_healthFunction += DamagePlayer;
-        //m_healthFunction += HealPlayer;
-    }
-    void Update() {
-        if(Input.GetKeyDown(KeyCode.Space)) {
-            int damage = 10;
-            if(curHealth == 0) {
-                Debug.Log("Stop it. Stop it. You're already dead.");
-            } else {
-                Debug.Log("Ouch! You did " + damage + " damage..");
-                DamagePlayer(damage);
-            }
-        }
-        if(Input.GetKeyDown(KeyCode.H)) {
-            int heal = 10;
-            if(curHealth == maxHealth) {
-                Debug.Log("You're already at full health.");
-            } else {
-                Debug.Log("Phew! You healed by " + heal + " health points.");
-                HealPlayer(heal);
-            }
-        }
+        maxHealth = UpgradeScript.instance.maxHealth.GetCurrentIntVal();
+        UpgradeScript.instance.onUpgradeUpdate += OnUpgradeUpdate;
+        spawnLocation = transform.position;
     }
     public void DamagePlayer(int damage) {
         curHealth -= damage;
-        healthBar.SetHealth(curHealth);
-        Debug.Log("You are now at " + curHealth + " health.");
         if(curHealth<1) {
             Debug.Log("You dead. Thanks for playing.");
             playerDeath?.Invoke();
+            FindAnyObjectByType<sceneTransition>().PlayerDeathTransition();
+            FindAnyObjectByType<DayNightCycle>().addTimeToPassing(20);
+            curHealth = maxHealth;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().enabled = false;
+            gameObject.transform.position = spawnLocation;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().enabled = true;
         }
+        healthBar.SetHealth(curHealth);
     }
 
     public void HealPlayer(int heal) {
-        if(curHealth == 0) {
-            Debug.Log("Welcome back to life, cheater.");
-        }
         curHealth += heal;
         healthBar.SetHealth(curHealth);
-        Debug.Log("You are now at " + curHealth + " health.");
     }
 
     public int getCurHealth() {
         return curHealth;
+    }
+    void OnUpgradeUpdate()
+    {
+        maxHealth = UpgradeScript.instance.maxHealth.GetCurrentIntVal();
     }
 }

@@ -19,8 +19,14 @@ public class EnemyHealth : EnemyScript
     
     public float health {get; private set;}
 
+    // Just adding this so I can see the health property
+    [SerializeField]
+    private float seeHealth;
+
     void Start() {
         health = maxHealth;
+        seeHealth = health;
+        enemyDeath += destroyGameObject;
     }
 
     public void TakeDamage(float damage, AttackType type) {
@@ -37,6 +43,7 @@ public class EnemyHealth : EnemyScript
         }
 
         health -= damage;
+        seeHealth = health;
         enemyHit?.Invoke(damage);
         if (health <= 0) {
             // core.rb.constraints = RigidbodyConstraints.None;
@@ -46,5 +53,10 @@ public class EnemyHealth : EnemyScript
     }
 
     public bool isDead => health <= 0;
+
+    // Simple death behaviour, can be replaced
+    public void destroyGameObject(){
+        Destroy(this.gameObject);
+    }
 
 }

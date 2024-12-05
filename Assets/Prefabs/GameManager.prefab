@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6485442023165889391
+--- !u!1 &5047763883734655523
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6494554955654770041}
+  - component: {fileID: 8972933774875033814}
+  - component: {fileID: 7547262866896169305}
+  - component: {fileID: 5837406782049785548}
+  - component: {fileID: 6317360680606638300}
+  - component: {fileID: 3586776349637411860}
+  - component: {fileID: 5113411333755317875}
+  - component: {fileID: 6009815850047862176}
+  - component: {fileID: 2493472081319309701}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -16,13 +23,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6494554955654770041
+--- !u!4 &8972933774875033814
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6485442023165889391}
+  m_GameObject: {fileID: 5047763883734655523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.377153, y: -1.2259189, z: -16.434061}
@@ -31,3 +38,156 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7547262866896169305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1258d1b9185b7e145b1db485849e0cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayLengthInSec: 20
+  clockHand: {fileID: 0}
+  sunObject: {fileID: 0}
+--- !u!114 &5837406782049785548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48df572ae56e3d642ba8aa991649da96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory:
+  - {fileID: 11400000, guid: 294820d6c75de84909107911a118f71e, type: 2}
+  - {fileID: 11400000, guid: 3c7a4301c92d42b63a71fd849a991410, type: 2}
+  - {fileID: 11400000, guid: 102f5e9c38ff7ae6b9c70cd99c07dc03, type: 2}
+  - {fileID: 11400000, guid: 11ec72078b367f20c902a9872be8f80d, type: 2}
+  - {fileID: 11400000, guid: 6c2487387e4e9a7f98eb865d1d6dc6bf, type: 2}
+  - {fileID: 11400000, guid: c4b831cb1283168179f5c2a05597e1a7, type: 2}
+  - {fileID: 11400000, guid: fa87a0cb3ba8bca418bed473abf6fbaa, type: 2}
+  - {fileID: 11400000, guid: 1e866da721c034f72b84884378010485, type: 2}
+  - {fileID: 11400000, guid: d992a43d9d531eae19f4f7f226f47686, type: 2}
+--- !u!114 &6317360680606638300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedfe372494d99548bb3c470694e7a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    upgradeDisplayName: Health
+    upgradeCost: 000000002800000050000000a00000002c010000
+    upgradesInt: 64000000780000008c000000a0000000b4000000
+    upgradesFloat: []
+    icon: {fileID: 0}
+    upgradeIndex: 0
+  bulletDamage:
+    upgradeDisplayName: 
+    upgradeCost: 00000000
+    upgradesInt: 03000000
+    upgradesFloat: []
+    icon: {fileID: 0}
+    upgradeIndex: 0
+  ammoLimit:
+    upgradeDisplayName: 
+    upgradeCost: 00000000
+    upgradesInt: 06000000
+    upgradesFloat: []
+    icon: {fileID: 0}
+    upgradeIndex: 0
+  reloadSpeed:
+    upgradeDisplayName: 
+    upgradeCost: 00000000
+    upgradesInt: 
+    upgradesFloat:
+    - 3
+    - 2.7
+    - 2.5
+    icon: {fileID: 0}
+    upgradeIndex: 0
+  meleeSpeed:
+    upgradeDisplayName: 
+    upgradeCost: 000000001e0000003c000000
+    upgradesInt: 
+    upgradesFloat:
+    - 1
+    icon: {fileID: 0}
+    upgradeIndex: 0
+  meleeDamage:
+    upgradeDisplayName: 
+    upgradeCost: 00000000
+    upgradesInt: 05000000
+    upgradesFloat: []
+    icon: {fileID: 0}
+    upgradeIndex: 0
+--- !u!114 &3586776349637411860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddef92765ecb4bf0816a6b413bd2ef5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5113411333755317875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b650c0bc815a10573a49a1e1adcf7a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customersServed: 0
+--- !u!114 &6009815850047862176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8720b76f60977ed884195c236212ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundArray:
+  - soundAsset: {fileID: 11400000, guid: a323bbc1812e7903ea6768fd693e60df, type: 2}
+    soundName: PlayerShoot
+  - soundAsset: {fileID: 11400000, guid: 70cab8d0f0f38a0d1979291fa5862d9f, type: 2}
+    soundName: PlayerReload
+  - soundAsset: {fileID: 11400000, guid: 618cc3d70d8619950b5488e9b4bb2332, type: 2}
+    soundName: PlayerOutOfAmmo
+  isGlobalInstance: 1
+--- !u!114 &2493472081319309701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5047763883734655523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7793734fec9e5e74fba55d309cbf97ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fame: 20

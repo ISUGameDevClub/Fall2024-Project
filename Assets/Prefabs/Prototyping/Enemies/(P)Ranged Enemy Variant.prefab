@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &319569439909898900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2795993993066019701, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: <player>k__BackingField
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.037607
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.94628
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.8989496
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290817894688885905, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_Name
+      value: Ranged Enemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290817894688885905, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: persuitDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431589137232523442, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: attackType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431589137232523442, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: attackWindup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431589137232523442, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: attackRangeMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431589137232523442, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: attackRangeMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431589137232523442, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: attackDurration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431589137232523442, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: projectilesTooShoot
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431589137232523442, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: timeBetweenProjectiles
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798642284336460284, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99e2384343a31700f87e2869dca42ed3, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}

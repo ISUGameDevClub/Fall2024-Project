@@ -34,7 +34,7 @@ public class EnemyAttack : EnemyScript
 
 
     [SerializeField] float meleeRange = 1f;
-    [SerializeField] float meleeDamage = 10f;
+    [SerializeField] int meleeDamage = 10;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] float projectileLaunchShift = 0.5f;
     [SerializeField] float projectileSpeed = 10f;
@@ -47,6 +47,7 @@ public class EnemyAttack : EnemyScript
     private void Start() {
         core.movement.behaviorStateChange += OnEnemyBehaviodStateChange;
         core.health.enemyDeath += OnEnemyDeath;
+        // attackExecute += ProtoMeleePlayer;
     }
 
     private void OnEnemyDeath() {
@@ -99,6 +100,7 @@ public class EnemyAttack : EnemyScript
             attackExecute?.Invoke(true);
             Debug.Log("Player in range for melee attack");
             // melee attack code here
+            ProtoMeleePlayer(true);
         } else {
             attackExecute?.Invoke(false);
             Debug.Log("Player out of range for melee attack");
@@ -143,6 +145,10 @@ public class EnemyAttack : EnemyScript
         Gizmos.DrawWireSphere(transform.position,attackRangeMin);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position,meleeRange);
+    }
+
+    private void ProtoMeleePlayer(bool inRange){
+        if(inRange){core.player.GetComponent<Health>().DamagePlayer(meleeDamage);}
     }
 
 }

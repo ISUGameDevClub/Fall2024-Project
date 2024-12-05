@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5597403342581199914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8432648485750550496}
+  - component: {fileID: 481695303686185992}
+  m_Layer: 7
+  m_Name: Enemy Poop Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8432648485750550496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597403342581199914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1009280787689204004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481695303686185992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5597403342581199914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54409f7a4247cfdd1ae35d8d8a885f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 5790262235823681162, guid: 866bc0a1b7fb4494cb7a33fbd9427045, type: 3}
+  spawnRate: 0.5
+  statesToSpawnOn: 02000000
+--- !u!1001 &8808601976608891932
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5376072
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1962795
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.10105
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3268664182466908942, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290817894688885905, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_Name
+      value: Scared Enemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: fleeSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: stateWhenPlayerSeen
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: changeStateAfterAttack
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062477841862693091, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: changeStateWhenEnemyHit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802182621222857545, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6777
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802182621222857545, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.6777
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802182621222857545, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6777
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802182621222857545, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00000095367
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798642284336460284, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1032a07954242f8c9a0f5c5dc3245ac2, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8376659386139200824, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8432648485750550496}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+--- !u!4 &1009280787689204004 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8376659386139200824, guid: 637ed4ece767dac878f32a3fdb2dad6d, type: 3}
+  m_PrefabInstance: {fileID: 8808601976608891932}
+  m_PrefabAsset: {fileID: 0}

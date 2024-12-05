@@ -18,6 +18,9 @@ public class PlayerAim1 : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+        UpgradeScript.instance.onUpgradeUpdate += OnUpgradeUpdate;
+        bulletMax = UpgradeScript.instance.ammoLimit.GetCurrentIntVal();
+        reloadTimer = UpgradeScript.instance.reloadSpeed.GetCurrentFloatVal();
     }
 
 
@@ -59,7 +62,6 @@ public class PlayerAim1 : MonoBehaviour
             Shoot();
             bulletCount -= 1;
         }
-
         void Shoot()
         {
             GameObject newBullet = Instantiate(bullet, bulletTransform.position, bulletTransform.rotation);
@@ -70,6 +72,11 @@ public class PlayerAim1 : MonoBehaviour
                 rb.velocity = bulletTransform.forward * 20f; 
             }
         }
+    }
+
+    void OnUpgradeUpdate()
+    {
+
     }
 
 }

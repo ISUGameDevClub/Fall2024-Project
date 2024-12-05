@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class Currency : MonoBehaviour
 {
-    private int playerCurrency = 0;
+    [SerializeField] int playerCurrency = 0;
+    public static Currency instance;
 
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        } else {
+            Destroy(gameObject);
+        }
+    }
 
     public bool AddCurrency(int amount)
     {
