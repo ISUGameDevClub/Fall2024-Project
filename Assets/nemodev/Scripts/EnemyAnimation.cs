@@ -16,10 +16,10 @@ public class EnemyAnimation : EnemyScript
     {
         animator = GetComponent<Animator>();
 
-        hasSpeedParameter = HasParameter("speed");
-        hasAttackParameter = HasParameter("attack");
-        hasHurtParameter = HasParameter("hurt");
-        hasDeadParameter = HasParameter("dead");
+        hasSpeedParameter = HasParameter("speed"); // float
+        hasAttackParameter = HasParameter("attack"); // trigger
+        hasHurtParameter = HasParameter("hurt"); // trigger
+        hasDeadParameter = HasParameter("dead"); // bool
 
         core.health.enemyHit += OnHurt;
         core.health.enemyDeath += OnDeath;
