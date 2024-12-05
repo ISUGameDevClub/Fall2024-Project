@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography.X509Certificates; // ah yes, to keep the restaurant secure
 using UnityEngine;
 
 public class RestStartMenu : MonoBehaviour
